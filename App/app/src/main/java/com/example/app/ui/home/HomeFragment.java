@@ -1,8 +1,6 @@
 package com.example.app.ui.home;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,12 +9,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.app.MapsActivity;
 import com.example.app.databinding.FragmentHomeBinding;
+import com.example.app.ui.TimerActivity;
 
 public class HomeFragment extends Fragment {
 
@@ -34,20 +32,25 @@ public class HomeFragment extends Fragment {
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         // Map
-        binding.mapButton.setOnClickListener(view -> {
+        binding.mapView.setOnClickListener(view -> {
             Intent intent = new Intent(getActivity(), MapsActivity.class);
+            startActivity(intent);
+        });
+
+        binding.timerButton.setOnClickListener(view -> {
+            Intent intent = new Intent(getActivity(), TimerActivity.class);
             startActivity(intent);
         });
 
         // Emergency call
         binding.callButton.setOnClickListener(view -> {
             int phoneNumber = 123;
-//            Intent intent = new Intent(Intent.ACTION_DIAL);
-            Intent intent = new Intent(Intent.ACTION_CALL);
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+//            Intent intent = new Intent(Intent.ACTION_CALL);
             Uri data = Uri.parse("tel:" + phoneNumber);
-            if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CALL_PHONE},phoneNumber);
-            }
+//            if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+//                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CALL_PHONE},phoneNumber);
+//            }
             intent.setData(data);
             startActivity(intent);
         });
