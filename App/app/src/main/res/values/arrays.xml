@@ -1,12 +1,12 @@
 <resources>
     <!-- Reply Preference -->
-    <string-array name="reply_entries">
-        <item>Reply</item>
-        <item>Reply to all</item>
+    <string-array name="dial_mode_entries">
+        <item>Jump to dial screen</item>
+        <item>Direct dial</item>
     </string-array>
 
-    <string-array name="reply_values">
-        <item>reply</item>
-        <item>reply_all</item>
+    <string-array name="dial_mode_values">
+        <item>dial_screen</item>
+        <item>direct_dial</item>
     </string-array>
 </resources>

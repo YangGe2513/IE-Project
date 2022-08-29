@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/navigation_settings"
-        android:name="com.example.app.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:name="com.example.app.SettingsFragment"
+        android:label="@string/title_settings"
         tools:layout="" />
 </navigation>

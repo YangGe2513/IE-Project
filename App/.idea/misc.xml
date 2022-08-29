@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2265" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/a.xml" value="0.2265" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.2265" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.2265" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.2265" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2265" />
@@ -12,6 +14,7 @@
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_login.xml" value="0.22056159420289856" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_maps.xml" value="0.22056159420289856" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_timer.xml" value="0.21965579710144928" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/fragment_dashboard.xml" value="0.14564336372847012" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/fragment_notifications.xml" value="0.14564336372847012" />
