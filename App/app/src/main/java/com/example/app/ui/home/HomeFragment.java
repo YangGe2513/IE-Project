@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
 
+import com.example.app.ContactActivity;
 import com.example.app.MapsActivity;
 import com.example.app.databinding.FragmentHomeBinding;
 import com.example.app.ui.TimerActivity;
@@ -57,6 +58,11 @@ public class HomeFragment extends Fragment {
         binding.callButton2.setOnClickListener(view -> {
             String contact2 = sharedPreferences.getString("contact2", "");
             call(contact2);
+        });
+
+        binding.addContactButton.setOnClickListener(view -> {
+            Intent intent = new Intent(getActivity(), ContactActivity.class);
+            startActivity(intent);
         });
 
         // Call police
