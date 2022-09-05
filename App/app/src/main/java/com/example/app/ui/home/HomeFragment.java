@@ -18,8 +18,8 @@ import androidx.preference.PreferenceManager;
 
 import com.example.app.ContactActivity;
 import com.example.app.MapsActivity;
+import com.example.app.SmartCallActivity;
 import com.example.app.databinding.FragmentHomeBinding;
-import com.example.app.ui.TimerActivity;
 
 public class HomeFragment extends Fragment {
 
@@ -43,8 +43,9 @@ public class HomeFragment extends Fragment {
             startActivity(intent);
         });
 
+        // SmartCall
         binding.timerButton.setOnClickListener(view -> {
-            Intent intent = new Intent(getActivity(), TimerActivity.class);
+            Intent intent = new Intent(getActivity(), SmartCallActivity.class);
             startActivity(intent);
         });
 

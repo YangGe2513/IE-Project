@@ -5,52 +5,109 @@
     android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="0dp"
+    android:layout_marginLeft="40dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="40dp"
+    android:layout_marginBottom="10dp"
+    android:backgroundTint="#FBEEEE"
     android:clickable="true"
+    android:focusable="true"
     android:foreground="?selectableItemBackground"
-    card_view:cardCornerRadius="5dp"
+    android:visibility="visible"
+    card_view:cardCornerRadius="15dp"
     card_view:cardElevation="3dp"
-    card_view:contentPadding="2dp"
-    android:focusable="true">
+    card_view:contentPadding="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="wrap_content"
+        android:backgroundTint="#B0FBEEEE">
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="99dp"
-            android:layout_height="101dp"
+            android:id="@+id/photo"
+            android:layout_width="83dp"
+            android:layout_height="82dp"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintHorizontal_bias="0.0"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent"
-            card_view:layout_constraintVertical_bias="1.0"
-            tools:srcCompat="@tools:sample/avatars" />
+            card_view:layout_constraintVertical_bias="0.0"
+            card_view:srcCompat="@drawable/girl3" />
 
         <TextView
-            android:id="@+id/propertyInfoTextView"
-            android:layout_width="162dp"
-            android:layout_height="26dp"
-            android:text="6655"
+            android:layout_width="84dp"
+            android:layout_height="17dp"
+            android:text="Phone No."
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintHorizontal_bias="0.56"
+            card_view:layout_constraintHorizontal_bias="0.412"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent" />
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintVertical_bias="0.079" />
+
+        <TextView
+            android:layout_width="84dp"
+            android:layout_height="17dp"
+            android:text="Relationship"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.412"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintVertical_bias="0.636" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/editButton"
             android:layout_width="35dp"
             android:layout_height="23dp"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintHorizontal_bias="0.857"
-            card_view:layout_constraintStart_toStartOf="@+id/imageView"
+            card_view:layout_constraintHorizontal_bias="0.942"
+            card_view:layout_constraintStart_toStartOf="@+id/photo"
             card_view:layout_constraintTop_toTopOf="parent"
-            card_view:layout_constraintVertical_bias="0.493"
             card_view:srcCompat="@drawable/edit" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="83dp"
+            android:layout_height="23dp"
+            android:text="Sophia"
+            android:textAlignment="center"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.0"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/photo"
+            card_view:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/PhoneText"
+            android:layout_width="146dp"
+            android:layout_height="25dp"
+            android:text="12345678"
+            android:textSize="20sp"
+            card_view:autoSizeTextType="none"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.566"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintVertical_bias="0.3" />
+
+        <TextView
+            android:id="@+id/relationshipText"
+            android:layout_width="146dp"
+            android:layout_height="25dp"
+            android:text="Mother"
+            android:textSize="20sp"
+            card_view:autoSizeTextType="none"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.566"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintVertical_bias="0.912" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

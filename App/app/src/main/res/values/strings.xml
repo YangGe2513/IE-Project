@@ -8,8 +8,11 @@
     <string name="title_timer">Timer</string>
     <string name="map">Map</string>
     <string name="police_contact">Call Police</string>
+    <string name="emergency_contact">Emergency Contact</string>
     <string name="emergency_contact1">Emergency Contact 1</string>
     <string name="emergency_contact2">Emergency Contact 2</string>
+
+    <!-- login activity-->
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -19,7 +22,15 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+
+    <!-- website link-->
     <string name="website">https://www.sunguard.live/</string>
+
+    <!-- Contact detail activity -->
+    <string name="set_contact">Set Your E-Contact</string>
+    <string name="phone_no">Phone No.</string>
+    <string name="name">Name</string>
+
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>
@@ -41,6 +52,4 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>
