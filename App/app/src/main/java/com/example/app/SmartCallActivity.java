@@ -1,5 +1,6 @@
 package com.example.app;
 
+import android.app.AlertDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,7 +25,7 @@ public class SmartCallActivity extends AppCompatActivity {
 
         // When user click on this editText, it will show a timePicker to set the time.
         binding.editTextTime.setOnClickListener(view -> {
-            new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
+            new TimePickerDialog(this, AlertDialog.THEME_HOLO_LIGHT, new TimePickerDialog.OnTimeSetListener() {
                 @Override
                 public void onTimeSet(TimePicker timePicker, int hour, int minute) {
                     String countdownTime = hour+"h "+minute+"min";

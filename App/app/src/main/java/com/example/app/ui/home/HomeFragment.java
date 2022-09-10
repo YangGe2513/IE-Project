@@ -1,6 +1,8 @@
 package com.example.app.ui.home;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -16,20 +18,22 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
 
-import com.example.app.ContactActivity;
+import com.example.app.ContactDetailActivity;
 import com.example.app.MapsActivity;
+import com.example.app.R;
 import com.example.app.SmartCallActivity;
+import com.example.app.data.ContactViewModel;
 import com.example.app.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
+    private ContactViewModel contactViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
-
+        // Load data
+        contactViewModel = new ViewModelProvider(requireActivity()).get(ContactViewModel.class);
         SharedPreferences sharedPreferences =
                 PreferenceManager.getDefaultSharedPreferences(getActivity());
 
@@ -61,9 +65,19 @@ public class HomeFragment extends Fragment {
             call(contact2);
         });
 
+        // Add emergency contact
         binding.addContactButton.setOnClickListener(view -> {
-            Intent intent = new Intent(getActivity(), ContactActivity.class);
-            startActivity(intent);
+            contactViewModel.getAll().observe(getViewLifecycleOwner(),contactList -> {
+                int maximum = getResources().getInteger(R.integer.contacts_max);
+                if(contactList.size() < maximum){
+                    Intent intent = new Intent(getActivity(), ContactDetailActivity.class);
+                    intent.putExtra("mode", "add");
+                    startActivity(intent);
+                }
+                else {
+                    maxContactDialog();
+                }
+            });
         });
 
         // Call police
@@ -89,6 +103,21 @@ public class HomeFragment extends Fragment {
         }
         intent.setData(data);
         startActivity(intent);
+    }
+
+    private void maxContactDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        // Set message
+        builder.setMessage("Beyond the maximum set for emergency contacts!")
+                .setTitle("Error");
+        // Add the buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+            }
+        });
+        // Create the AlertDialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     @Override

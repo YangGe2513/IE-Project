@@ -71,7 +71,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/relationshipSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:entries="@array/relationships"
@@ -88,6 +88,7 @@
         android:id="@+id/imageView2"
         android:layout_width="119dp"
         android:layout_height="112dp"
+        android:transitionName="a"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -97,7 +98,7 @@
         app:srcCompat="@drawable/girl3" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/nameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sophia"
@@ -123,7 +124,7 @@
         app:layout_constraintVertical_bias="0.163" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/deleteButton"
         android:layout_width="46dp"
         android:layout_height="46dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -138,14 +139,14 @@
         android:foreground="?selectableItemBackground"/>
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/saveButton"
         android:layout_width="46dp"
         android:layout_height="46dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintStart_toEndOf="@+id/deleteButton"
+        app:layout_constraintTop_toTopOf="@+id/deleteButton"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/save"
         android:focusable="true"

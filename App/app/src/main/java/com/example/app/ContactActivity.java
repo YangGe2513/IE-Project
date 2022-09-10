@@ -3,12 +3,12 @@ package com.example.app;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.app.adapter.ContactRecyclerViewAdapter;
+import com.example.app.data.ContactViewModel;
 import com.example.app.databinding.ActivityContactBinding;
+
 
 public class ContactActivity extends AppCompatActivity {
 
@@ -22,11 +22,15 @@ public class ContactActivity extends AppCompatActivity {
         binding = ActivityContactBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.contactRecyclerView.addItemDecoration(new
-                DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
-        ContactRecyclerViewAdapter adapter = new ContactRecyclerViewAdapter(this);
-        binding.contactRecyclerView.setAdapter(adapter);
-        layoutManager = new LinearLayoutManager(getParent());
-        binding.contactRecyclerView.setLayoutManager(layoutManager);
+        ContactViewModel contactViewModel =
+                ViewModelProvider.AndroidViewModelFactory.getInstance(this.getApplication()).
+                        create(ContactViewModel.class);
+
+//        binding.contactRecyclerView.addItemDecoration(new
+//                DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+//        ContactRecyclerViewAdapter adapter = new ContactRecyclerViewAdapter(this,contactViewModel.getAll());
+//        binding.contactRecyclerView.setAdapter(adapter);
+//        layoutManager = new LinearLayoutManager(getParent());
+//        binding.contactRecyclerView.setLayoutManager(layoutManager);
     }
 }
