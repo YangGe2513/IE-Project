@@ -8,9 +8,11 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
@@ -19,17 +21,27 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
 
 import com.example.app.ContactDetailActivity;
+import com.example.app.MainActivity;
 import com.example.app.MapsActivity;
 import com.example.app.R;
 import com.example.app.SmartCallActivity;
 import com.example.app.data.ContactViewModel;
+import com.example.app.data.LocationResponse;
+import com.example.app.data.RetrofitClient;
 import com.example.app.databinding.FragmentHomeBinding;
+import com.example.app.interfaces.RetrofitInterface;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
     private ContactViewModel contactViewModel;
-
+    private RetrofitInterface retrofitInterface;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         // Load data
@@ -91,6 +103,39 @@ public class HomeFragment extends Fragment {
             Uri data = Uri.parse("tel:000");
             intent.setData(data);
             startActivity(intent);
+        });
+        //map button
+        binding.button.setOnClickListener(view -> {
+            retrofitInterface = RetrofitClient.getGoogleLocation();
+            String lat = "-37.913903";
+            String lon = "145.131741";
+            Call<LocationResponse> locationResponseCall = retrofitInterface.getGoogleLocation(lat+","+lon,getString(R.string.google_api_key));
+            locationResponseCall.enqueue(new Callback<LocationResponse>() {
+                @Override
+                public void onResponse(Call<LocationResponse> call,
+                                       Response<LocationResponse> response) {
+                    if (response.isSuccessful()) {
+                            try {
+                                LocationResponse jsonObj = response.body();
+                                ArrayList<LocationResponse.Result> main = jsonObj.results;
+                                LocationResponse.Result address = main.get(0);
+                                LocationResponse.AddressComponent city = address.address_components.get(1);
+
+                                Toast.makeText(requireContext(),"I am in "+ city.long_name.toString() + ". Latitude:" +lat+ ", Longitude:"+lon+".", Toast.LENGTH_SHORT).show();
+                            } catch (Exception e) {
+                                Log.i("Error ", "Assign failed");
+                            }
+
+                        } else {
+                            Log.i("Error ", "Response failed");
+                        }
+                }
+                @Override
+                public void onFailure(Call<LocationResponse> call, Throwable t){
+                    Toast.makeText(requireContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
         });
         return root;
     }

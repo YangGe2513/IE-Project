@@ -52,5 +52,7 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
+    <!--google geo API-->
+    <string name="geo_api_link">https://maps.googleapis.com/maps/api/geocode/json?latlng=%d$1,%d$2&amp;key=AIzaSyDX3sBQdaUQtICndjsQQ-eiWaroTytWti0</string>
+    <string name="google_api_key">AIzaSyDX3sBQdaUQtICndjsQQ-eiWaroTytWti0 </string>
 </resources>
