@@ -2,11 +2,15 @@ package com.example.app.ui.home;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -41,7 +45,8 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
     private ContactViewModel contactViewModel;
-    private RetrofitInterface retrofitInterface;
+
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         // Load data
@@ -104,39 +109,9 @@ public class HomeFragment extends Fragment {
             intent.setData(data);
             startActivity(intent);
         });
-        //map button
-        binding.button.setOnClickListener(view -> {
-            retrofitInterface = RetrofitClient.getGoogleLocation();
-            String lat = "-37.913903";
-            String lon = "145.131741";
-            Call<LocationResponse> locationResponseCall = retrofitInterface.getGoogleLocation(lat+","+lon,getString(R.string.google_api_key));
-            locationResponseCall.enqueue(new Callback<LocationResponse>() {
-                @Override
-                public void onResponse(Call<LocationResponse> call,
-                                       Response<LocationResponse> response) {
-                    if (response.isSuccessful()) {
-                            try {
-                                LocationResponse jsonObj = response.body();
-                                ArrayList<LocationResponse.Result> main = jsonObj.results;
-                                LocationResponse.Result address = main.get(0);
-                                LocationResponse.AddressComponent city = address.address_components.get(1);
 
-                                Toast.makeText(requireContext(),"I am in "+ city.long_name.toString() + ". Latitude:" +lat+ ", Longitude:"+lon+".", Toast.LENGTH_SHORT).show();
-                            } catch (Exception e) {
-                                Log.i("Error ", "Assign failed");
-                            }
 
-                        } else {
-                            Log.i("Error ", "Response failed");
-                        }
-                }
-                @Override
-                public void onFailure(Call<LocationResponse> call, Throwable t){
-                    Toast.makeText(requireContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
 
-        });
         return root;
     }
 

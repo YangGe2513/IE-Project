@@ -35,8 +35,10 @@
         <entry key="app/src/main/res/layout/activity_timer.xml" value="0.19157608695652173" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.19157608695652173" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19157608695652173" />
+        <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.29739583333333336" />
         <entry key="app/src/main/res/layout/recyclerview_contact_item.xml" value="0.27445652173913043" />
         <entry key="app/src/main/res/layout/rv_item.xml" value="0.27445652173913043" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.2833333333333333" />
       </map>
     </option>
   </component>
