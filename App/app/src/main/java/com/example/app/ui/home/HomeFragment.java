@@ -2,49 +2,39 @@ package com.example.app.ui.home;
 
 import android.Manifest;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.location.LocationListener;
-import android.location.LocationManager;
+import android.media.MediaPlayer;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.app.ContactDetailActivity;
-import com.example.app.MainActivity;
 import com.example.app.MapsActivity;
 import com.example.app.R;
 import com.example.app.SmartCallActivity;
+import com.example.app.adapter.ContactButtonRecyclerViewAdapter;
 import com.example.app.data.ContactViewModel;
-import com.example.app.data.LocationResponse;
-import com.example.app.data.RetrofitClient;
 import com.example.app.databinding.FragmentHomeBinding;
-import com.example.app.interfaces.RetrofitInterface;
-
-import java.util.ArrayList;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
     private ContactViewModel contactViewModel;
+    private RecyclerView.LayoutManager layoutManager;
+    private MediaPlayer mediaPlayer;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -57,30 +47,38 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        contactViewModel.getAll().observe(getViewLifecycleOwner(),contactList -> {
+            ContactButtonRecyclerViewAdapter adapter = new ContactButtonRecyclerViewAdapter(getActivity(),contactList);
+            binding.contactRecyclerView.setAdapter(adapter);
+        });
 
-        // Map
-        binding.mapView.setOnClickListener(view -> {
+        layoutManager = new LinearLayoutManager(getActivity().getParent(),LinearLayoutManager.HORIZONTAL,false);
+        binding.contactRecyclerView.setLayoutManager(layoutManager);
+
+
+        // FollowMe
+        binding.followMe.setOnClickListener(view -> {
             Intent intent = new Intent(getActivity(), MapsActivity.class);
             startActivity(intent);
         });
 
         // SmartCall
-        binding.timerButton.setOnClickListener(view -> {
+        binding.fakeVoice.setOnClickListener(view -> {
             Intent intent = new Intent(getActivity(), SmartCallActivity.class);
             startActivity(intent);
         });
 
-        // Emergency call 1
-        binding.callButton1.setOnClickListener(view -> {
-            String contact1 = sharedPreferences.getString("contact1", "");
-            call(contact1);
-        });
-
-        // Emergency call 2
-        binding.callButton2.setOnClickListener(view -> {
-            String contact2 = sharedPreferences.getString("contact2", "");
-            call(contact2);
-        });
+//        // Emergency call 1
+//        binding.callButton1.setOnClickListener(view -> {
+//            String contact1 = sharedPreferences.getString("contact1", "");
+//            call(contact1);
+//        });
+//
+//        // Emergency call 2
+//        binding.callButton2.setOnClickListener(view -> {
+//            String contact2 = sharedPreferences.getString("contact2", "");
+//            call(contact2);
+//        });
 
         // Add emergency contact
         binding.addContactButton.setOnClickListener(view -> {
@@ -110,8 +108,9 @@ public class HomeFragment extends Fragment {
             startActivity(intent);
         });
 
-
-
+        binding.sosButton.setOnClickListener(view->{
+            playSound(R.raw.sos1);
+        });
         return root;
     }
 
@@ -140,9 +139,26 @@ public class HomeFragment extends Fragment {
         dialog.show();
     }
 
+    private void playSound(int resourceId){
+        if(mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+        mediaPlayer = MediaPlayer.create(getActivity(), resourceId);
+        mediaPlayer.start();
+        mediaPlayer.setOnCompletionListener(mp -> {
+            mp.release();
+            mp = null;
+        });
+    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+        if(mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 }

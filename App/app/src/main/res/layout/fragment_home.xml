@@ -17,112 +17,146 @@
         app:layout_constraintHorizontal_bias="0.622"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.236" />
+        app:layout_constraintVertical_bias="0.385" />
 
-
-    <ImageView
-        android:id="@+id/callButton1"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="290dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:src="@drawable/boy"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toStartOf="@+id/callButton2"
-        app:layout_constraintHorizontal_bias="0.142"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        android:focusable="true"
-        android:clickable="true"
-        android:foreground="?selectableItemBackground"/>
-
-    <ImageView
-        android:id="@+id/callButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/boy2"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        android:focusable="true"
-        android:clickable="true"
-        android:foreground="?selectableItemBackground"/>
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:src="@drawable/girl"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.672"
-        app:layout_constraintStart_toEndOf="@+id/callButton2"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        android:focusable="true"
-        android:clickable="true"
-        android:foreground="?selectableItemBackground"/>
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/contactRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:listitem="@layout/recyclerview_contact_button_item" />
+    </LinearLayout>
+
+<!--    <ImageView-->
+<!--        android:id="@+id/callButton1"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="28dp"-->
+<!--        android:src="@drawable/boy"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/imageView"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/callButton2"-->
+<!--        app:layout_constraintHorizontal_bias="0.142"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/imageView"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/imageView"-->
+<!--        android:focusable="true"-->
+<!--        android:clickable="true"-->
+<!--        android:foreground="?selectableItemBackground"/>-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/callButton2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/boy2"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/imageView"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.437"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/imageView"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/imageView"-->
+<!--        android:focusable="true"-->
+<!--        android:clickable="true"-->
+<!--        android:foreground="?selectableItemBackground"/>-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView4"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="32dp"-->
+<!--        android:src="@drawable/girl"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/imageView"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/imageView"-->
+<!--        app:layout_constraintHorizontal_bias="0.672"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/callButton2"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/imageView"-->
+<!--        android:focusable="true"-->
+<!--        android:clickable="true"-->
+<!--        android:foreground="?selectableItemBackground"/>-->
 
     <ImageView
         android:id="@+id/addContactButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground"
         android:src="@drawable/ic_add_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.023"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.2"
-        android:focusable="true"
-        android:clickable="true"
-        android:foreground="?selectableItemBackground"/>
+        app:layout_constraintVertical_bias="0.253" />
 
     <ImageView
-        android:id="@+id/timerButton"
+        android:id="@+id/fakeVoice"
         android:layout_width="153dp"
         android:layout_height="182dp"
-        android:src="@drawable/smart_call"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground"
+        android:src="@drawable/fake_voice"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.147"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.615"
-        android:focusable="true"
-        android:clickable="true"
-        android:foreground="?selectableItemBackground"/>
+        app:layout_constraintVertical_bias="0.701" />
 
     <ImageView
-        android:id="@+id/mapView"
+        android:id="@+id/followMe"
         android:layout_width="151dp"
         android:layout_height="182dp"
-        android:src="@drawable/safety_area"
-        app:layout_constraintBottom_toBottomOf="@+id/timerButton"
+        android:src="@drawable/follow_me"
+        app:layout_constraintBottom_toBottomOf="@+id/fakeVoice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.449"
-        app:layout_constraintStart_toEndOf="@+id/timerButton"
-        app:layout_constraintTop_toTopOf="@+id/timerButton"
+        app:layout_constraintStart_toEndOf="@+id/fakeVoice"
+        app:layout_constraintTop_toTopOf="@+id/fakeVoice"
         app:layout_constraintVertical_bias="0.0"
         android:focusable="true"
         android:clickable="true"
         android:foreground="?selectableItemBackground"/>
 
-    <ImageView
-        android:id="@+id/policeButton"
-        android:layout_width="104dp"
-        android:layout_height="102dp"
-        android:src="@drawable/phone"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.322"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.875"
-        android:focusable="true"
-        android:clickable="true"
-        android:foreground="?selectableItemBackground"/>
+        app:layout_constraintVertical_bias="0.186">
+
+        <ImageView
+            android:id="@+id/policeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?selectableItemBackground"
+            android:src="@drawable/ic_phone_call" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:layout_weight="1"
+            android:text="Call Police!"
+            android:textColor="#C71609"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView2"
@@ -136,6 +170,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.024" />
+
+    <ImageView
+        android:id="@+id/sosButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_sos"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.876" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

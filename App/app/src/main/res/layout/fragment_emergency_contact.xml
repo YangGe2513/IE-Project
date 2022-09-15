@@ -4,27 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.dashboard.DashboardFragment">
+    tools:context=".ui.dashboard.EmergencyContactFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/contactRecyclerView"
-        android:layout_width="411dp"
-        android:layout_height="630dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
         android:layout_weight="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintVertical_bias="1"
         tools:listitem="@layout/recyclerview_contact_item" />
 
     <TextView
-        android:layout_width="302dp"
-        android:layout_height="42dp"
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/emergency_contact"
         android:textColor="#CC3E2DA4"
         android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="@+id/contactRecyclerView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"

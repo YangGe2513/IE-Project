@@ -25,7 +25,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.app.R;
 import com.example.app.data.LocationResponse;
 import com.example.app.data.RetrofitClient;
-import com.example.app.databinding.FragmentNotificationsBinding;
+import com.example.app.databinding.FragmentMapBinding;
 import com.example.app.interfaces.RetrofitInterface;
 
 import java.util.ArrayList;
@@ -34,9 +34,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class NotificationsFragment extends Fragment {
+public class MapFragment extends Fragment {
     private static final int REQUEST_LOCATION = 1;
-    private FragmentNotificationsBinding binding;
+    private FragmentMapBinding binding;
     private RetrofitInterface retrofitInterface;
     private LocationManager locationManager;
     private String lat = "-37.913903";
@@ -47,7 +47,7 @@ public class NotificationsFragment extends Fragment {
         NotificationsViewModel notificationsViewModel =
                 new ViewModelProvider(this).get(NotificationsViewModel.class);
 
-        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+        binding = FragmentMapBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textNotifications;

@@ -10,7 +10,7 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Set Your Smart Call "
+        android:text="Choose Fake Voice "
         android:textColor="#CC3E2DA4"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,10 +18,10 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.084" />
+        app:layout_constraintVertical_bias="0.061" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/dogImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -35,66 +35,64 @@
         android:foreground="?selectableItemBackground"/>
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/dadImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="344dp"
-        android:focusableInTouchMode="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.651"
-        app:srcCompat="@drawable/dad"
-        android:focusable="true"
         android:clickable="true"
-        android:foreground="?selectableItemBackground"/>
+        android:focusable="true"
+        android:focusableInTouchMode="false"
+        android:foreground="?selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dogImageView"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/dogImageView"
+        app:layout_constraintTop_toBottomOf="@+id/dogImageView"
+        app:layout_constraintVertical_bias="0.054"
+        app:srcCompat="@drawable/dad" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/manImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView7"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView7"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:layout_constraintVertical_bias="0.054"
-        app:srcCompat="@drawable/man"
-        android:focusable="true"
         android:clickable="true"
-        android:foreground="?selectableItemBackground"/>
+        android:focusable="true"
+        android:foreground="?selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/dadImageView"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/dadImageView"
+        app:layout_constraintTop_toBottomOf="@+id/dadImageView"
+        app:layout_constraintVertical_bias="0.104"
+        app:srcCompat="@drawable/man" />
 
     <ImageView
         android:id="@+id/startButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.207"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="0.523"
-        app:srcCompat="@drawable/start"
-        android:focusable="true"
-        android:clickable="true"
-        android:foreground="?selectableItemBackground"/>
+        app:layout_constraintTop_toBottomOf="@+id/manImageView"
+        app:layout_constraintVertical_bias="0.819"
+        app:srcCompat="@drawable/start" />
 
-    <EditText
-        android:id="@+id/editTextTime"
+    <ImageView
+        android:id="@+id/fireworkImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:focusable="false"
-        android:hint="Set Countdown Timer"
-        android:inputType="time"
-        android:minHeight="48dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.748" />
+        app:layout_constraintEnd_toEndOf="@+id/manImageView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/manImageView"
+        app:layout_constraintTop_toBottomOf="@+id/manImageView"
+        app:layout_constraintVertical_bias="0.179"
+        app:srcCompat="@drawable/firework" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

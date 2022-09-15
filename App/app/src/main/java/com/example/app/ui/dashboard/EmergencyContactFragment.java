@@ -14,17 +14,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.app.adapter.ContactRecyclerViewAdapter;
 import com.example.app.data.ContactViewModel;
-import com.example.app.databinding.FragmentDashboardBinding;
+import com.example.app.databinding.FragmentEmergencyContactBinding;
 
-public class DashboardFragment extends Fragment {
+public class EmergencyContactFragment extends Fragment {
 
-    private FragmentDashboardBinding binding;
+    private FragmentEmergencyContactBinding binding;
     private RecyclerView.LayoutManager layoutManager;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentEmergencyContactBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         ContactViewModel contactViewModel =
