@@ -4,22 +4,36 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.app.data.ContactViewModel;
 import com.example.app.data.model.Contact;
+import com.example.app.databinding.FragmentMapBinding;
 import com.example.app.databinding.RecyclerviewContactButtonItemBinding;
+import com.example.app.interfaces.RetrofitInterface;
 
 import java.util.List;
 
 public class ContactButtonRecyclerViewAdapter extends RecyclerView.Adapter<ContactButtonRecyclerViewAdapter.ViewHolder>{
     private final List<Contact> contacts;
     private final Activity activity;
+    private static final int REQUEST_LOCATION = 1;
+    private FragmentMapBinding binding;
+    private RetrofitInterface retrofitInterface;
+    private LocationManager locationManager;
+    private String lat = "-37.913903";
+    private String lon = "145.131741";
+    private ContactViewModel contactViewModel;
+    private RecyclerView.LayoutManager layoutManager;
+
 
     public ContactButtonRecyclerViewAdapter(Activity activity, List<Contact> contacts) {
         this.activity = activity;
@@ -55,6 +69,7 @@ public class ContactButtonRecyclerViewAdapter extends RecyclerView.Adapter<Conta
         holder.binding.photo.setOnClickListener(view -> {
             call(phoneNumber);
         });
+
     }
 
     @Override
@@ -70,4 +85,15 @@ public class ContactButtonRecyclerViewAdapter extends RecyclerView.Adapter<Conta
             this.binding = binding;
         }
     }
+
+
+
+
+
+
+
+
+
+
+
 }

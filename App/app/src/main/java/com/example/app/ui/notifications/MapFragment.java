@@ -21,8 +21,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.app.R;
+import com.example.app.adapter.ContactButtonRecyclerViewAdapter;
+import com.example.app.data.ContactViewModel;
 import com.example.app.data.LocationResponse;
 import com.example.app.data.RetrofitClient;
 import com.example.app.databinding.FragmentMapBinding;
@@ -35,15 +39,19 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MapFragment extends Fragment {
-    private static final int REQUEST_LOCATION = 1;
     private FragmentMapBinding binding;
+
+    private static final int REQUEST_LOCATION = 1;
     private RetrofitInterface retrofitInterface;
     private LocationManager locationManager;
     private String lat = "-37.913903";
     private String lon = "145.131741";
+    private ContactViewModel contactViewModel;
+    private RecyclerView.LayoutManager layoutManager;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
         NotificationsViewModel notificationsViewModel =
                 new ViewModelProvider(this).get(NotificationsViewModel.class);
 
@@ -51,6 +59,7 @@ public class MapFragment extends Fragment {
         View root = binding.getRoot();
 
         final TextView textView = binding.textNotifications;
+
         notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         ActivityCompat.requestPermissions(requireActivity(),
@@ -122,7 +131,7 @@ public class MapFragment extends Fragment {
                         LocationResponse.Result address = main.get(0);
                         LocationResponse.AddressComponent city = address.address_components.get(1);
 
-                        Toast.makeText(requireContext(),"I am in "+ city.long_name.toString() + ". Latitude:" +lat+ ", Longitude:"+lon+".", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(requireContext(),"I am at "+ city.long_name.toString() + ". Latitude:" +lat+ ", Longitude:"+lon+".", Toast.LENGTH_SHORT).show();
                     } catch (Exception e) {
                         Log.i("Error ", "Assign failed");
                     }
