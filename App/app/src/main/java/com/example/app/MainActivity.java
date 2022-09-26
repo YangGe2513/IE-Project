@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         SharedPreferences sharedPreferences = getSharedPreferences("onBoarding", Context.MODE_PRIVATE);
-        boolean notFinished = sharedPreferences.getBoolean("NotFinished",true);
-        if(notFinished){
+        boolean isFinished = sharedPreferences.getBoolean("IsFinished",false);
+        if(!isFinished){
             Intent intent = new Intent(this, OnboardingActivity.class);
             startActivity(intent);
             finish();

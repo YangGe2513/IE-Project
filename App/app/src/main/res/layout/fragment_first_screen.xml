@@ -18,20 +18,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.2" />
 
-    <ImageButton
-        android:id="@+id/getStartButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="0dp"
-        android:foreground="?selectableItemBackground"
-        android:src="@drawable/ic_next"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.924" />
-
     <TextView
+        android:id="@+id/textView17"
         style="@style/OnboardingTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,6 +31,7 @@
         app:layout_constraintVertical_bias="0.6" />
 
     <TextView
+        android:id="@+id/textView18"
         style="@style/OnboardingSubtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -53,4 +42,15 @@
         app:layout_constraintStart_toStartOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.68" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_slide1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.787" />
 </androidx.constraintlayout.widget.ConstraintLayout>

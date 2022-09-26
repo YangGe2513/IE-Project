@@ -48,19 +48,4 @@ public class EmergencyContactFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
-//    public void loadWebsite(){
-//        // Enable JavaScript
-//        binding.webView.getSettings().setJavaScriptEnabled(true);
-//
-//        // Client
-//        binding.webView.setWebViewClient(new WebViewClient(){
-//            @Override
-//            public boolean shouldOverrideUrlLoading(WebView view, String url){
-//                view.loadUrl(url);
-//                return super.shouldOverrideUrlLoading(view,url);
-//            }
-//        });
-//        binding.webView.loadUrl(getString(R.string.website));
-//    }
 }

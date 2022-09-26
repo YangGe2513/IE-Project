@@ -21,8 +21,9 @@ public class ThirdScreen extends Fragment {
         View root = binding.getRoot();
 
         binding.getStartButton.setOnClickListener(view -> {
-            Intent intent = new Intent(getActivity(),ProfileActivity.class);
+            Intent intent = new Intent(getActivity(), ProfileActivity.class);
             startActivity(intent);
+            getActivity().finish();
         });
 
         return root;

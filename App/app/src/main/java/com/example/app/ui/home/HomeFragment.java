@@ -28,6 +28,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.app.ContactDetailActivity;
+import com.example.app.DataReportActivity;
 import com.example.app.FollowMeActivity;
 import com.example.app.R;
 import com.example.app.adapter.ContactButtonRecyclerViewAdapter;
@@ -120,6 +121,11 @@ public class HomeFragment extends Fragment {
 
         binding.sos.setOnClickListener(view->{
             playSound(R.raw.sos1);
+        });
+
+        binding.dataReport.setOnClickListener(view ->{
+            Intent intent = new Intent(getActivity(), DataReportActivity.class);
+            startActivity(intent);
         });
         return root;
     }
