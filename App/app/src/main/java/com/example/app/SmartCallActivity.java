@@ -7,7 +7,6 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.app.databinding.ActivitySmartCallBinding;
-import com.example.app.ui.TimerActivity;
 
 public class SmartCallActivity extends AppCompatActivity {
 

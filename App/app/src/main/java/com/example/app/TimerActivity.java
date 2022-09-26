@@ -1,4 +1,4 @@
-package com.example.app.ui;
+package com.example.app;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;

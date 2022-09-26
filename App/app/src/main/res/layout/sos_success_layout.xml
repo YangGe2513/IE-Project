@@ -7,10 +7,7 @@
 
 
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="208dp"
-        android:src="@drawable/call_icon" />
+
 
     <LinearLayout
         android:orientation="horizontal"
@@ -21,7 +18,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Message sent successfully!"
+            android:text="Signal sent successfully!"
             android:gravity="center"
             android:textSize="28sp"
             android:textStyle="bold" />
@@ -38,7 +35,7 @@
 
 
         <android.widget.Button
-            android:id="@+id/call_police_btn"
+            android:id="@+id/sos_call_police_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -50,6 +47,26 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:padding="8dp">
+
+
+        <android.widget.Button
+            android:id="@+id/sos_fake_voice_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Fake voice"
+            android:background = "@drawable/fake_voice_button"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -59,7 +76,7 @@
         android:padding="8dp">
 
         <android.widget.Button
-            android:id="@+id/back_home_btn"
+            android:id="@+id/sos_success_back_home_btn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"

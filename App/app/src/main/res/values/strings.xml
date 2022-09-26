@@ -59,4 +59,11 @@
     <string name="google_api_key">AIzaSyDX3sBQdaUQtICndjsQQ-eiWaroTytWti0 </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sos_desc"> 1. After the emergency SOS function is enabled, the system will send the template help information to the emergency contact you have selected.
+\n\n
+2. In addition to the generic help message, the template message will also include a link to the location of the help signal you sent along with the message.
+\n\n
+3. Before opening SOS, you can customize the template information so that emergency contacts know your situation more precisely.
+\n\n
+4. Added SOS help signal sound to the version, making it easier to get help from people around. </string>
 </resources>

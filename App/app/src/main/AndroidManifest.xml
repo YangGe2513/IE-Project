@@ -52,7 +52,7 @@
             android:exported="false"
             android:theme="@style/Theme.App.NoActionBar" />
         <activity
-            android:name=".ui.TimerActivity"
+            android:name=".TimerActivity"
             android:exported="false"
             android:label="@string/title_timer"
             android:theme="@style/Theme.App.NoActionBar" />
@@ -68,6 +68,8 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity> <!-- Google map api -->
+
+        <activity android:name=".SOSActivity" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBDVyYafQQfpbF6TI-FKVUyoYbvHkKVLFk" />
