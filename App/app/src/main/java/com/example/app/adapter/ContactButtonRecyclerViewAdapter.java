@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -46,8 +45,10 @@ public class ContactButtonRecyclerViewAdapter extends RecyclerView.Adapter<Conta
         if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.CALL_PHONE},1);
         }
-        intent.setData(data);
-        activity.startActivity(intent);
+        else {
+            intent.setData(data);
+            activity.startActivity(intent);
+        }
     }
 
     @NonNull

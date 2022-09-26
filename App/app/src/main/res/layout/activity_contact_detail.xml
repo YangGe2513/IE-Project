@@ -133,7 +133,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.773"
-        app:srcCompat="@drawable/trash"
+        app:srcCompat="@drawable/ic_delete"
         android:focusable="true"
         android:clickable="true"
         android:foreground="?selectableItemBackground"/>
@@ -142,14 +142,14 @@
         android:id="@+id/saveButton"
         android:layout_width="46dp"
         android:layout_height="46dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="@+id/deleteButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toEndOf="@+id/deleteButton"
         app:layout_constraintTop_toTopOf="@+id/deleteButton"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/save"
-        android:focusable="true"
-        android:clickable="true"
-        android:foreground="?selectableItemBackground"/>
+        app:srcCompat="@drawable/ic_save" />
 </androidx.constraintlayout.widget.ConstraintLayout>

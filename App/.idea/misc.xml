@@ -3,66 +3,90 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable-v24/back_to_home_button.xml" value="0.2045" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable-v24/done_button.xml" value="0.2045" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2265" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable-v24/rounded_edge.xml" value="0.2045" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/a.xml" value="0.2265" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic____16.xml" value="0.2045" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_add_button.xml" value="0.1" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_baseline_people_24.xml" value="0.244" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.2265" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_bg.xml" value="0.2045" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_card.xml" value="0.2045" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_cta_button.xml" value="0.2015" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.2265" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_data_report.xml" value="0.2015" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_follow_me.xml" value="0.2015" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_gg_logo.xml" value="0.244" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.2265" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2265" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_list.xml" value="0.2045" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_list_contact.xml" value="0.2045" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_list_from.xml" value="0.2045" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_list_note.xml" value="0.2045" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_list_to.xml" value="0.2045" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_list_type.xml" value="0.2045" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_logo_1.xml" value="0.244" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.2265" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_onboarding_first.xml" value="0.2045" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_onboarding_second.xml" value="0.2015" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_onboarding_third.xml" value="0.2045" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_phone_call.xml" value="0.2045" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_play.xml" value="0.2045" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_profile1.xml" value="0.1" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_search_service.xml" value="0.2015" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_sos.xml" value="0.2015" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_start_app.xml" value="0.2015" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_stop.xml" value="0.2045" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_time_list.xml" value="0.2045" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_tip_icon.xml" value="0.2045" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_walking.xml" value="0.2045" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_white_background.xml" value="0.244" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout-v23/fragment_home.xml" value="0.2984375" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_clock.xml" value="0.2994791666666667" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_contact.xml" value="0.264" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_contact_detail.xml" value="0.264" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_follow_me.xml" value="0.2164855072463768" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_login.xml" value="0.22056159420289856" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_maps.xml" value="0.22056159420289856" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_onboarding.xml" value="0.2994791666666667" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_profile.xml" value="0.2164855072463768" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_smart_call.xml" value="0.264" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_timer.xml" value="0.21965579710144928" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/layout/alert_count_down_layout.xml" value="0.264" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/content_contact.xml" value="0.14322916666666666" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/fragment_dashboard.xml" value="0.14564336372847012" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/fragment_emergency_contact.xml" value="0.2994791666666667" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/layout/fragment_first_screen.xml" value="0.264" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/layout/fragment_fourth_screen.xml" value="0.20969202898550723" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/fragment_map.xml" value="0.2994791666666667" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/fragment_notifications.xml" value="0.14564336372847012" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/layout/fragment_second_screen.xml" value="0.264" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/layout/fragment_third_screen.xml" value="0.264" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/recyclerview_contact_button_item.xml" value="0.28489583333333335" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/recyclerview_contact_item.xml" value="0.4" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/settings_activity.xml" value="0.22056159420289856" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/layout/success_call_layout.xml" value="0.2953125" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/layout/test.xml" value="0.2994791666666667" />
         <entry key="..\:/IE-Project/App/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2994791666666667" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.244" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.117" />
         <entry key="..\:/IE-Project/App/app/src/main/res/xml/root_preferences.xml" value="0.22056159420289856" />
-        <entry key="app/src/main/res/drawable-v24/back_to_home_button.xml" value="0.212" />
-        <entry key="app/src/main/res/drawable-v24/custom_dialog_background.xml" value="0.2195" />
-        <entry key="app/src/main/res/drawable-v24/done_button.xml" value="0.212" />
-        <entry key="app/src/main/res/drawable-v24/ic_baseline_cloud_upload_24.xml" value="0.2675" />
-        <entry key="app/src/main/res/drawable-v24/rounded_edge.xml" value="0.1835" />
-        <entry key="app/src/main/res/drawable/bottom_sheet_layout.xml" value="0.146" />
-        <entry key="app/src/main/res/drawable/button_radius.xml" value="0.2965" />
-        <entry key="app/src/main/res/drawable/countdown_button_color_1.xml" value="0.201" />
-        <entry key="app/src/main/res/drawable/countdown_button_color_2.xml" value="0.201" />
-        <entry key="app/src/main/res/drawable/dialog_bg.xml" value="0.1" />
-        <entry key="app/src/main/res/drawable/sos_bar_background.xml" value="0.1" />
-        <entry key="app/src/main/res/layout-w936dp/test.xml" value="0.21653005464480873" />
         <entry key="app/src/main/res/layout/activity_contact.xml" value="0.19157608695652173" />
         <entry key="app/src/main/res/layout/activity_contact_detail.xml" value="0.19157608695652173" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.16757246376811594" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16757246376811594" />
-        <entry key="app/src/main/res/layout/activity_maps.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_maps.xml" value="0.19157608695652173" />
         <entry key="app/src/main/res/layout/activity_smart_call.xml" value="0.19157608695652173" />
         <entry key="app/src/main/res/layout/activity_timer.xml" value="0.19157608695652173" />
-        <entry key="app/src/main/res/layout/alert_count_down_layout.xml" value="0.2657821655273438" />
-        <entry key="app/src/main/res/layout/bottomsheetlayout.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/bottomsoslayout.xml" value="0.2477355072463768" />
-        <entry key="app/src/main/res/layout/custom_dialog_layout.xml" value="0.2893646240234375" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.19157608695652173" />
-        <entry key="app/src/main/res/layout/fragment_emergency_contact.xml" value="0.21240942028985507" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_map.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19157608695652173" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.29739583333333336" />
         <entry key="app/src/main/res/layout/recyclerview_contact_item.xml" value="0.27445652173913043" />
         <entry key="app/src/main/res/layout/rv_item.xml" value="0.27445652173913043" />
-        <entry key="app/src/main/res/layout/success_call_layout.xml" value="0.26313405797101447" />
-        <entry key="app/src/main/res/layout/test.xml" value="0.25" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.2833333333333333" />
       </map>
     </option>

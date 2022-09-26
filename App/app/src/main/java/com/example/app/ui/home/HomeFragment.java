@@ -2,6 +2,7 @@ package com.example.app.ui.home;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -27,15 +28,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.app.ContactDetailActivity;
-import com.example.app.MapsActivity;
+import com.example.app.FollowMeActivity;
 import com.example.app.R;
-import com.example.app.SmartCallActivity;
 import com.example.app.adapter.ContactButtonRecyclerViewAdapter;
 import com.example.app.data.ContactViewModel;
 import com.example.app.data.LocationResponse;
 import com.example.app.data.RetrofitClient;
 import com.example.app.databinding.FragmentHomeBinding;
-import com.example.app.databinding.FragmentMapBinding;
 import com.example.app.interfaces.RetrofitInterface;
 
 import java.util.ArrayList;
@@ -61,11 +60,16 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         // Load data
         contactViewModel = new ViewModelProvider(requireActivity()).get(ContactViewModel.class);
+        SharedPreferences onBoardingSharedPreferences =
+                requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE);
         SharedPreferences sharedPreferences =
                 PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String username = onBoardingSharedPreferences.getString("Username","");
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        binding.welcomeTextView.setText("Hi, " + username);
 
         contactViewModel.getAll().observe(getViewLifecycleOwner(),contactList -> {
             ContactButtonRecyclerViewAdapter adapter = new ContactButtonRecyclerViewAdapter(getActivity(),contactList);
@@ -81,27 +85,10 @@ public class HomeFragment extends Fragment {
 
         // FollowMe
         binding.followMe.setOnClickListener(view -> {
-            Intent intent = new Intent(getActivity(), MapsActivity.class);
+            Intent intent = new Intent(getActivity(), FollowMeActivity.class);
             startActivity(intent);
         });
 
-        // SmartCall
-        binding.fakeVoice.setOnClickListener(view -> {
-            Intent intent = new Intent(getActivity(), SmartCallActivity.class);
-            startActivity(intent);
-        });
-
-//        // Emergency call 1
-//        binding.callButton1.setOnClickListener(view -> {
-//            String contact1 = sharedPreferences.getString("contact1", "");
-//            call(contact1);
-//        });
-//
-//        // Emergency call 2
-//        binding.callButton2.setOnClickListener(view -> {
-//            String contact2 = sharedPreferences.getString("contact2", "");
-//            call(contact2);
-//        });
 
         // Add emergency contact
         binding.addContactButton.setOnClickListener(view -> {
@@ -119,19 +106,19 @@ public class HomeFragment extends Fragment {
         });
 
         // Call police
-        binding.policeButton.setOnClickListener(view -> {
-            String dialMode = sharedPreferences.getString("dial_mode","");
-            if ("direct_dial".equals(dialMode)){
-                call("000");
-                return;
-            }
-            Intent intent = new Intent(Intent.ACTION_DIAL);
-            Uri data = Uri.parse("tel:000");
-            intent.setData(data);
-            startActivity(intent);
-        });
+//        binding.policeButton.setOnClickListener(view -> {
+//            String dialMode = sharedPreferences.getString("dial_mode","");
+//            if ("direct_dial".equals(dialMode)){
+//                call("000");
+//                return;
+//            }
+//            Intent intent = new Intent(Intent.ACTION_DIAL);
+//            Uri data = Uri.parse("tel:000");
+//            intent.setData(data);
+//            startActivity(intent);
+//        });
 
-        binding.sosButton.setOnClickListener(view->{
+        binding.sos.setOnClickListener(view->{
             playSound(R.raw.sos1);
         });
         return root;

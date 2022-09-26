@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">App</string>
+    <string name="app_name">GirlsSafe</string>
     <string name="title_home">Home</string>
     <string name="title_contact">E-contact</string>
     <string name="title_map">Map</string>
@@ -11,6 +11,8 @@
     <string name="emergency_contact">Emergency Contact</string>
     <string name="emergency_contact1">Emergency Contact 1</string>
     <string name="emergency_contact2">Emergency Contact 2</string>
+    <string name="follow_me">Follow Me</string>
+    <string name="search_service">Search Service</string>
     <integer name="contacts_max">4</integer>
 
     <!-- login activity-->
@@ -55,4 +57,6 @@
     <!--google geo API-->
     <string name="geo_api_link">https://maps.googleapis.com/maps/api/geocode/json?latlng=%d$1,%d$2&amp;key=AIzaSyDX3sBQdaUQtICndjsQQ-eiWaroTytWti0</string>
     <string name="google_api_key">AIzaSyDX3sBQdaUQtICndjsQQ-eiWaroTytWti0 </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

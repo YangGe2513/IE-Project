@@ -11,18 +11,40 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor" tools:targetApi="l">@color/activityBackground</item>
+        <item name="android:statusBarColor">@color/activityBackground</item>
         <!-- Customize your theme here. -->
         <item name="android:windowBackground">@color/activityBackground</item>
 
         <!-- enable window content transitions -->
-            <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowActivityTransitions">true</item>
+
+        <item name="android:windowSplashScreenBackground">@color/white</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_gg_logo</item>
+        <item name="android:windowSplashScreenAnimationDuration">1000</item>
 
     </style>
 
     <style name="Theme.App.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Onboarding theme -->
+    <style name="Theme.App.Onboarding">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
+    <style name="OnboardingTitle">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">#8449E3</item>
+    </style>
+
+    <style name="OnboardingSubtitle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAlignment">center</item>
     </style>
 
     <style name="Theme.App.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
