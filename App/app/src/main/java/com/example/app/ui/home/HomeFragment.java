@@ -29,7 +29,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.app.ContactDetailActivity;
 import com.example.app.DataReportActivity;
-import com.example.app.FollowMeActivity;
+import com.example.app.FollowMeIntroActivity;
 import com.example.app.R;
 import com.example.app.SOSActivity;
 import com.example.app.adapter.ContactButtonRecyclerViewAdapter;
@@ -87,24 +87,27 @@ public class HomeFragment extends Fragment {
 
         // FollowMe
         binding.followMe.setOnClickListener(view -> {
-            Intent intent = new Intent(getActivity(), FollowMeActivity.class);
+            Intent intent = new Intent(getActivity(), FollowMeIntroActivity.class);
             startActivity(intent);
         });
 
 
         // Add emergency contact
         binding.addContactButton.setOnClickListener(view -> {
-            contactViewModel.getAll().observe(getViewLifecycleOwner(),contactList -> {
-                int maximum = getResources().getInteger(R.integer.contacts_max);
-                if(contactList.size() < maximum){
-                    Intent intent = new Intent(getActivity(), ContactDetailActivity.class);
-                    intent.putExtra("mode", "add");
-                    startActivity(intent);
-                }
-                else {
-                    maxContactDialog();
-                }
-            });
+//            contactViewModel.getAll().observe(getViewLifecycleOwner(),contactList -> {
+//                int maximum = getResources().getInteger(R.integer.contacts_max);
+//                if(contactList.size() < maximum){
+//                    Intent intent = new Intent(getActivity(), ContactDetailActivity.class);
+//                    intent.putExtra("mode", "add");
+//                    startActivity(intent);
+//                }
+//                else {
+//                    maxContactDialog();
+//                }
+//            });
+            Intent intent = new Intent(getActivity(), ContactDetailActivity.class);
+            intent.putExtra("mode", "add");
+            startActivity(intent);
         });
 
         // Call police

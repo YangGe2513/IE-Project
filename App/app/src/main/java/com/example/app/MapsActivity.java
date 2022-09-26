@@ -10,7 +10,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.location.Location;
 import android.location.LocationManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.provider.Settings;
@@ -20,7 +19,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,7 +48,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
-    private static final long START_TIME_IN_MILLIS = 6000000;
+    private long START_TIME_IN_MILLIS;
     private static final long START_TIME_IN_MILLIS_2 = 4000;
     private TextView mTextViewCountDown;
 
@@ -63,7 +61,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private boolean mTimerRunning;
 
-    private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
+    private long mTimeLeftInMillis;
     private long timeLeftInMillis = START_TIME_IN_MILLIS_2;
 
     private static final int REQUEST_LOCATION = 1;
@@ -79,6 +77,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        int hour = getIntent().getIntExtra("hour",0);
+        int minute = getIntent().getIntExtra("minute",0);
+
+        START_TIME_IN_MILLIS = hour * 3600000L + minute * 60000L;
+
+        mTimeLeftInMillis = START_TIME_IN_MILLIS;
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -135,7 +140,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
         );
         binding.btnBackToHome.setOnClickListener(view -> {
-            openMainActivity();
+            finish();
         });
 
     }
@@ -220,7 +225,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onClick(View v) {
 
                 dialog.dismiss();
-                openMainActivity();
+                finish();
             }
         });
 
@@ -337,7 +342,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
-                openMainActivity();
+                finish();
             }
         });
 
@@ -409,10 +414,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
 
-    public void openMainActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
+
 
     /**
      * Manipulates the map once available.

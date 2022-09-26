@@ -51,11 +51,10 @@ public class ContactDetailActivity extends AppCompatActivity {
 
             if("add".equals(mode)) {
                 Contact contact = new Contact(newName, newPhoneNumber, newRelationship);
-                contactViewModel.add(contact);
+                addContact(contact);
             }
 
-            Intent newIntent = new Intent(this, MainActivity.class);
-            startActivity(newIntent);
+            finish();
         });
 
         binding.deleteButton.setOnClickListener(view -> {
@@ -101,8 +100,7 @@ public class ContactDetailActivity extends AppCompatActivity {
                 }
                 return contact;
             });
-            Intent newIntent = new Intent(this, MainActivity.class);
-            startActivity(newIntent);
+            finish();
         }
     }
 
@@ -115,6 +113,19 @@ public class ContactDetailActivity extends AppCompatActivity {
                     contact.setPhoneNumber(newPhoneNumber);
                     contact.setRelationship(newRelationship);
                     contactViewModel.update(contact);
+                }
+                return contact;
+            });
+        }
+    }
+
+    private void addContact(Contact newContact){
+        // Check version
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            CompletableFuture<Contact> contactCompletableFuture = contactViewModel.findByNameFuture(newContact.getName());
+            contactCompletableFuture.thenApply(contact -> {
+                if (contact == null) {
+                    contactViewModel.add(newContact);
                 }
                 return contact;
             });

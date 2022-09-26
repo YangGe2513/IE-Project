@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sos_background"
-    tools:context=".ContactDetailActivity">
+    tools:context=".FollowMeIntroActivity"
+    android:background="@drawable/sos_background">
 
 
     <Button
-        android:id="@+id/sos_home_button"
+        android:id="@+id/backButton"
         android:layout_width="104dp"
         android:layout_height="47dp"
-        android:background="@color/transparent"
         android:text="Back"
+        android:background="@color/transparent"
         android:textColor="@color/white"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -26,15 +26,15 @@
 
     <ImageView
         android:id="@+id/sos_img"
-        android:layout_width="200dp"
-        android:layout_height="169dp"
-        android:src="@drawable/sos_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_follow_me_intro"
         android:transitionName="a"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sos_home_button"
+        app:layout_constraintTop_toBottomOf="@+id/backButton"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -42,7 +42,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
-        android:text="SoS"
+        android:layout_marginTop="24dp"
+        android:text="Follow Me"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,26 +56,28 @@
 
     <TextView
         android:id="@+id/sos_text"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginRight="60dp"
-        android:text="@string/sos_desc"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="60dp"
+        android:text="@string/follow_me_desc"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/sos_title"
         app:layout_constraintTop_toBottomOf="@+id/sos_title">
 
     </TextView>
 
     <android.widget.Button
 
-        android:id="@+id/sosStartBtn"
-        android:layout_width="match_parent"
+        android:id="@+id/nextButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="80dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="80dp"
-        android:background="@drawable/countdown_button_color_2"
-        android:text="Get Started"
+        android:background="@drawable/back_to_home_button"
+        android:text="Next"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/sos_text"

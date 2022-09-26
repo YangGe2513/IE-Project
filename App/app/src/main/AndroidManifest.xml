@@ -20,6 +20,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".FollowMeIntroActivity"
+            android:exported="false"
+            android:theme="@style/Theme.App.NoActionBar"/>
+        <activity
             android:name=".SelectTypeActivity"
             android:exported="false"
             android:theme="@style/Theme.App.NoActionBar" />
@@ -68,8 +72,8 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity> <!-- Google map api -->
-
         <activity android:name=".SOSActivity" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBDVyYafQQfpbF6TI-FKVUyoYbvHkKVLFk" />
