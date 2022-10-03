@@ -22,7 +22,7 @@
         <activity
             android:name=".FollowMeIntroActivity"
             android:exported="false"
-            android:theme="@style/Theme.App.NoActionBar"/>
+            android:theme="@style/Theme.App.NoActionBar" />
         <activity
             android:name=".SelectTypeActivity"
             android:exported="false"
@@ -58,7 +58,9 @@
         <activity
             android:name=".TimerActivity"
             android:exported="false"
-            android:label="@string/title_timer"
+            android:theme="@style/Theme.App.NoActionBar" />
+        <activity
+            android:name=".SOSActivity"
             android:theme="@style/Theme.App.NoActionBar" />
         <activity
             android:name=".ui.login.LoginActivity"
@@ -67,16 +69,9 @@
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
-        </activity> <!-- Google map api -->
-        <activity android:name=".SOSActivity" />
-
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBDVyYafQQfpbF6TI-FKVUyoYbvHkKVLFk" />
+        </activity>
 
         <activity
             android:name=".MapsActivity"
@@ -91,6 +86,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Google map api -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBDVyYafQQfpbF6TI-FKVUyoYbvHkKVLFk" />
     </application>
 
 </manifest>

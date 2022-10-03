@@ -5,9 +5,11 @@
       <map>
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable-v24/back_to_home_button.xml" value="0.2045" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable-v24/done_button.xml" value="0.2045" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.1975" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2265" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable-v24/rounded_edge.xml" value="0.2045" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/a.xml" value="0.2265" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/fake_voice_button.xml" value="0.1975" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic____16.xml" value="0.2045" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_add_button.xml" value="0.1" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_baseline_people_24.xml" value="0.244" />
@@ -62,7 +64,7 @@
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_contact.xml" value="0.264" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_contact_detail.xml" value="0.264" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_data_report.xml" value="0.2164855072463768" />
-        <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_follow_me.xml" value="0.14977973568281938" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_follow_me.xml" value="0.264" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_follow_me_intro.xml" value="0.264" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_login.xml" value="0.22056159420289856" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_main.xml" value="0.264" />

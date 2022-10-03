@@ -1,9 +1,6 @@
 package com.example.app;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
@@ -18,15 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 
-import com.example.app.data.ContactViewModel;
-import com.example.app.data.model.Contact;
-import com.example.app.databinding.ActivityContactDetailBinding;
 import com.example.app.databinding.ActivitySosBinding;
-
-import java.util.Objects;
-import java.util.concurrent.CompletableFuture;
 
 
 public class SOSActivity extends AppCompatActivity {
@@ -42,12 +32,11 @@ public class SOSActivity extends AppCompatActivity {
 
         binding = ActivitySosBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        getSupportActionBar().hide();
 
         Button sosHomeButton = binding.sosHomeButton;
 
         sosHomeButton.setOnClickListener(view -> {
-            openMainActivity();
+            finish();
         });
 
         Button sosStartBtn = binding.sosStartBtn;
@@ -123,7 +112,7 @@ public class SOSActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
-                openMainActivity();
+                finish();
             }
         });
         sosFakeVoiceButton.setOnClickListener(view -> {
@@ -138,12 +127,6 @@ public class SOSActivity extends AppCompatActivity {
         dialog.getWindow().setGravity(Gravity.BOTTOM);
     }
 
-
-    public void openMainActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-
     private void playSound(int resourceId){
         if(mediaPlayer != null) {
             mediaPlayer.release();
@@ -155,5 +138,14 @@ public class SOSActivity extends AppCompatActivity {
             mp.release();
             mp = null;
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 }

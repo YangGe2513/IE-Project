@@ -9,12 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.app.databinding.ActivityFollowMeBinding;
@@ -63,39 +65,11 @@ public class FollowMeActivity extends AppCompatActivity {
         });
 
         binding.from.setOnClickListener(view ->{
-            AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-            final View dialogView = LayoutInflater.from(view.getContext()).inflate(R.layout.edit_location_dialog, null);
-            builder.setView(dialogView);
-            final AlertDialog alertDialog = builder.show();
-            final EditText editTextAddress = dialogView.findViewById(R.id.nameEditText);
-            Button saveButton = dialogView.findViewById(R.id.btnBackToHome);
-            saveButton.setOnClickListener(v -> {
-                String address = editTextAddress.getText().toString();
-                binding.fromText.setText(address);
-                alertDialog.dismiss();
-            });
-            Button cancelButton = dialogView.findViewById(R.id.cancelEditLocationButton);
-            cancelButton.setOnClickListener(v -> {
-                alertDialog.dismiss();
-            });
+            showEditLocationDialog(view,binding.fromText);
         });
 
         binding.to.setOnClickListener(view ->{
-            AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-            final View dialogView = LayoutInflater.from(view.getContext()).inflate(R.layout.edit_location_dialog, null);
-            builder.setView(dialogView);
-            final AlertDialog alertDialog = builder.show();
-            final EditText editTextAddress = dialogView.findViewById(R.id.nameEditText);
-            Button saveButton = dialogView.findViewById(R.id.btnBackToHome);
-            saveButton.setOnClickListener(v -> {
-                String address = editTextAddress.getText().toString();
-                binding.toText.setText(address);
-                alertDialog.dismiss();
-            });
-            Button cancelButton = dialogView.findViewById(R.id.cancelEditLocationButton);
-            cancelButton.setOnClickListener(v -> {
-                alertDialog.dismiss();
-            });
+            showEditLocationDialog(view,binding.toText);
         });
 
         binding.contact.setOnClickListener(view ->{
@@ -109,6 +83,24 @@ public class FollowMeActivity extends AppCompatActivity {
         binding.startActivityButton.setOnClickListener(view ->{
             startActivity(start);
             finish();
+        });
+    }
+
+    public void showEditLocationDialog(@NonNull View view, TextView textView){
+        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+        final View dialogView = LayoutInflater.from(view.getContext()).inflate(R.layout.edit_location_dialog, null);
+        builder.setView(dialogView);
+        final AlertDialog alertDialog = builder.show();
+        final EditText editTextAddress = dialogView.findViewById(R.id.nameEditText);
+        Button saveButton = dialogView.findViewById(R.id.btnBackToHome);
+        saveButton.setOnClickListener(v -> {
+            String address = editTextAddress.getText().toString();
+            textView.setText(address);
+            alertDialog.dismiss();
+        });
+        Button cancelButton = dialogView.findViewById(R.id.cancelEditLocationButton);
+        cancelButton.setOnClickListener(v -> {
+            alertDialog.dismiss();
         });
     }
 }
