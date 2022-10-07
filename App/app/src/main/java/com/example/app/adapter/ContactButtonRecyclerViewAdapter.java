@@ -2,41 +2,44 @@ package com.example.app.adapter;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.LocationManager;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.app.data.ContactViewModel;
+import com.example.app.MainActivity;
+import com.example.app.R;
 import com.example.app.data.model.Contact;
-import com.example.app.databinding.FragmentMapBinding;
 import com.example.app.databinding.RecyclerviewContactButtonItemBinding;
-import com.example.app.interfaces.RetrofitInterface;
 
 import java.util.List;
 
 public class ContactButtonRecyclerViewAdapter extends RecyclerView.Adapter<ContactButtonRecyclerViewAdapter.ViewHolder>{
     private final List<Contact> contacts;
     private final Activity activity;
-    private static final int REQUEST_LOCATION = 1;
-    private FragmentMapBinding binding;
-    private RetrofitInterface retrofitInterface;
-    private LocationManager locationManager;
-    private String lat = "-37.913903";
-    private String lon = "145.131741";
-    private ContactViewModel contactViewModel;
-    private RecyclerView.LayoutManager layoutManager;
+    private final AlertDialog alertDialog;
+    private final TextView textView;
 
 
     public ContactButtonRecyclerViewAdapter(Activity activity, List<Contact> contacts) {
         this.activity = activity;
         this.contacts = contacts;
+        this.alertDialog = null;
+        this.textView = null;
+    }
+
+    public ContactButtonRecyclerViewAdapter(Activity activity, List<Contact> contacts, AlertDialog alertDialog, TextView textView) {
+        this.activity = activity;
+        this.contacts = contacts;
+        this.alertDialog = alertDialog;
+        this.textView = textView;
     }
 
     private void call(String contactNumber){
@@ -67,10 +70,20 @@ public class ContactButtonRecyclerViewAdapter extends RecyclerView.Adapter<Conta
 
         holder.binding.nameTextView.setText(name);
 
-        holder.binding.photo.setOnClickListener(view -> {
-            call(phoneNumber);
-        });
-
+        if(activity instanceof MainActivity) {
+            holder.binding.photo.setOnClickListener(view -> {
+                call(phoneNumber);
+            });
+        }
+        else {
+            holder.binding.nameTextView.setTextColor(activity.getResources().getColor(R.color.black));
+            holder.binding.photo.setOnClickListener(view -> {
+                assert alertDialog != null;
+                assert textView != null;
+                alertDialog.dismiss();
+                textView.setText(name);
+            });
+        }
     }
 
     @Override

@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/cancelEditLocationButton"
+        android:id="@+id/cancelEditNoteButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -43,7 +43,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cancelEditLocationButton" />
+        app:layout_constraintTop_toBottomOf="@+id/cancelEditNoteButton" />
 
     <Button
         android:id="@+id/btn_cancel"
@@ -61,7 +61,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/divider"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cancelEditLocationButton" />
+        app:layout_constraintTop_toBottomOf="@+id/cancelEditNoteButton" />
 
     <Button
         android:id="@+id/btn_yes"
@@ -79,5 +79,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/divider"
-        app:layout_constraintTop_toBottomOf="@+id/cancelEditLocationButton" />
+        app:layout_constraintTop_toBottomOf="@+id/cancelEditNoteButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

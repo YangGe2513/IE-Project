@@ -10,65 +10,47 @@
     android:layout_marginBottom="60dp"
     android:background="@android:color/white">
 
-
     <TextView
-        android:id="@+id/textViewLocation"
+        android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="160dp"
-        android:text="Your location"
-        android:textAlignment="center"
-        android:textColor="#3B3B3B"
-        android:textSize="20sp"
+        android:layout_marginTop="16dp"
+        android:text="Edit Note"
+        android:textColor="#10275A"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_cancel"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="319dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Address"
-        android:paddingBottom="15dp"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Note"
         android:textColorHint="#3B3B3B"
         app:hintTextColor="#3B3B3B"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/cancelEditNoteButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.36">
+        app:layout_constraintTop_toBottomOf="@+id/textView21">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/nameEditText"
+            android:id="@+id/noteEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="top"
             android:inputType="text"
+            android:selectAllOnFocus="true"
             android:textColor="#CC3E2DA4"
             android:textColorHint="#CC3E2DA4" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageView
-        android:id="@+id/btn_cancel"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="19dp"
-        android:src="@drawable/locat_icon"
-        app:layout_constraintBottom_toTopOf="@+id/cancelEditLocationButton"
-        app:layout_constraintEnd_toStartOf="@+id/textViewLocation"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
-
     <Button
-        android:id="@+id/cancelEditLocationButton"
+        android:id="@+id/cancelEditNoteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="160dp"
@@ -91,22 +73,9 @@
         android:background="@drawable/back_to_home_button"
         android:text="Save"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="@+id/cancelEditLocationButton"
+        app:layout_constraintBottom_toBottomOf="@+id/cancelEditNoteButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cancelEditLocationButton"
+        app:layout_constraintTop_toTopOf="@+id/cancelEditNoteButton"
         app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Edit Location"
-        android:textColor="#10275A"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

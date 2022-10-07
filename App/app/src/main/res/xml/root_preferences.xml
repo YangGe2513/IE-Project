@@ -28,11 +28,11 @@
 
     </PreferenceCategory>
 
-<!--    <PreferenceCategory app:title="@string/sync_header">-->
+    <PreferenceCategory app:title="@string/sync_header">
 
-<!--        <SwitchPreferenceCompat-->
-<!--            app:key="sync"-->
-<!--            app:title="@string/sync_title" />-->
+        <SwitchPreferenceCompat
+            app:key="introduction"
+            app:title="@string/introduction_title" />
 
 <!--        <SwitchPreferenceCompat-->
 <!--            app:dependency="sync"-->
@@ -41,6 +41,6 @@
 <!--            app:summaryOn="@string/attachment_summary_on"-->
 <!--            app:title="@string/attachment_title" />-->
 
-<!--    </PreferenceCategory>-->
+    </PreferenceCategory>
 
 </PreferenceScreen>

@@ -18,12 +18,19 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.app.adapter.ContactButtonRecyclerViewAdapter;
+import com.example.app.data.ContactViewModel;
+import com.example.app.data.model.Event;
 import com.example.app.databinding.ActivityFollowMeBinding;
 
 public class FollowMeActivity extends AppCompatActivity {
 
     private ActivityFollowMeBinding binding;
+    private Event event;
 
     private ActivityResultLauncher<Intent> selectTypeActivityLauncher =
             registerForActivityResult(
@@ -44,6 +51,8 @@ public class FollowMeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityFollowMeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        event = new Event();
 
         Intent start = new Intent(this,MapsActivity.class);
 
@@ -73,11 +82,11 @@ public class FollowMeActivity extends AppCompatActivity {
         });
 
         binding.contact.setOnClickListener(view ->{
-            Intent intent = new Intent(this,SelectTypeActivity.class);
+            showPickContactDialog(view,binding.contactText);
         });
 
         binding.note.setOnClickListener(view ->{
-            Intent intent = new Intent(this,SelectTypeActivity.class);
+            showEditNoteDialog(view,binding.noteText);
         });
 
         binding.startActivityButton.setOnClickListener(view ->{
@@ -88,17 +97,57 @@ public class FollowMeActivity extends AppCompatActivity {
 
     public void showEditLocationDialog(@NonNull View view, TextView textView){
         AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-        final View dialogView = LayoutInflater.from(view.getContext()).inflate(R.layout.edit_location_dialog, null);
+        final View dialogView = LayoutInflater.from(view.getContext()).inflate(R.layout.dialog_edit_location, null);
         builder.setView(dialogView);
         final AlertDialog alertDialog = builder.show();
-        final EditText editTextAddress = dialogView.findViewById(R.id.nameEditText);
+        final EditText editTextAddress = dialogView.findViewById(R.id.locationEditText);
         Button saveButton = dialogView.findViewById(R.id.btnBackToHome);
         saveButton.setOnClickListener(v -> {
             String address = editTextAddress.getText().toString();
             textView.setText(address);
             alertDialog.dismiss();
         });
-        Button cancelButton = dialogView.findViewById(R.id.cancelEditLocationButton);
+        Button cancelButton = dialogView.findViewById(R.id.cancelEditNoteButton);
+        cancelButton.setOnClickListener(v -> {
+            alertDialog.dismiss();
+        });
+    }
+
+    public void showPickContactDialog(@NonNull View view, TextView textView){
+        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+        final View dialogView = LayoutInflater.from(view.getContext()).inflate(R.layout.dialog_pick_contact, null);
+        builder.setView(dialogView);
+        final AlertDialog alertDialog = builder.show();
+
+        ContactViewModel contactViewModel = new ViewModelProvider(this).get(ContactViewModel.class);
+        RecyclerView recyclerView = dialogView.findViewById(R.id.contactRecyclerView);
+        contactViewModel.getAll().observe(this,contactList -> {
+            ContactButtonRecyclerViewAdapter adapter = new ContactButtonRecyclerViewAdapter(this,contactList,alertDialog,textView);
+            recyclerView.setAdapter(adapter);
+        });
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getParent(),LinearLayoutManager.HORIZONTAL,false);
+        recyclerView.setLayoutManager(layoutManager);
+
+        Button cancelButton = dialogView.findViewById(R.id.cancelSelectContactButton);
+        cancelButton.setOnClickListener(v -> {
+            alertDialog.dismiss();
+        });
+    }
+
+    public void showEditNoteDialog(@NonNull View view, TextView textView){
+        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+        final View dialogView = LayoutInflater.from(view.getContext()).inflate(R.layout.dialog_edit_note, null);
+        builder.setView(dialogView);
+        final AlertDialog alertDialog = builder.show();
+        final EditText noteEditText = dialogView.findViewById(R.id.noteEditText);
+        noteEditText.setText(event.getNote());
+        Button saveButton = dialogView.findViewById(R.id.btnBackToHome);
+        saveButton.setOnClickListener(v -> {
+            event.setNote(noteEditText.getText().toString());
+            textView.setText("edited");
+            alertDialog.dismiss();
+        });
+        Button cancelButton = dialogView.findViewById(R.id.cancelEditNoteButton);
         cancelButton.setOnClickListener(v -> {
             alertDialog.dismiss();
         });

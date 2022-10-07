@@ -20,4 +20,22 @@
         <item>Friend</item>
         <item>College</item>
     </string-array>
+
+    <string-array name="welcomeTitle">
+        <item>Emergency Contact</item>
+        <item>Follow Me</item>
+        <item>SOS</item>
+        <item>Call Police</item>
+        <item>Fake Voice</item>
+        <item>Safety Tips</item>
+    </string-array>
+
+    <string-array name="welcomeDescription">
+        <item>Add those people who could provide support to you in an emergency by using this feature</item>
+        <item>Create events to connect your emergency contact who can follow you by using this feature</item>
+        <item>Alert your emergency contacts based on your safety plan by using this feature</item>
+        <item>Quickly call your local police department based on your set location by using this feature</item>
+        <item>Play the sound simulation to help you scare the bad guys away by using this feature</item>
+        <item>Learning as much as you can about safety can reduce your risk of injury by using this feature</item>
+    </string-array>
 </resources>

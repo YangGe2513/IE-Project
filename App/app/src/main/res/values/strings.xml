@@ -43,7 +43,7 @@
     <string name="reply_title">Dial mode for calling police</string>
 
     <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
+    <string name="introduction_title">Close introduction</string>
     <string name="attachment_title">Download incoming attachments</string>
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
@@ -65,7 +65,8 @@
 \n\n
 3. Before opening SOS, you can customize the template information so that emergency contacts know your situation more precisely.
 \n\n
-4. Added SOS help signal sound to the version, making it easier to get help from people around. </string>
+4. Added SOS help signal sound to the version, making it easier to get help from people around.
+    </string>
     <string name="follow_me_desc">
         1. Start your activity and GirlsSafe will provide reassurance that your emergency contact are notified if an alert is activated.\n\n
         2. If an alert is activated, your emergency contact  can get your final location  message.

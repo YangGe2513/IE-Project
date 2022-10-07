@@ -20,6 +20,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".SearchServiceActivity"
+            android:exported="false" />
+        <activity
             android:name=".FollowMeIntroActivity"
             android:exported="false"
             android:theme="@style/Theme.App.NoActionBar" />
@@ -72,7 +75,6 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-
         <activity
             android:name=".MapsActivity"
             android:exported="false"
@@ -85,9 +87,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Google map api -->
+        </activity> <!-- Google map api -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBDVyYafQQfpbF6TI-FKVUyoYbvHkKVLFk" />
