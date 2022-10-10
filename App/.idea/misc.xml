@@ -10,9 +10,16 @@
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2265" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable-v24/rounded_edge.xml" value="0.2045" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/a.xml" value="0.2265" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/back_to_home_button2.xml" value="0.1975" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/background_safety_tips_intro.xml" value="0.1975" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/bg_btn_safety_tips.xml" value="0.1165" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/button_radius.xml" value="0.119" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/button_shape.xml" value="0.119" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/button_shape2.xml" value="0.1975" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/fake_voice_button.xml" value="0.1975" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic____16.xml" value="0.2045" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_add_button.xml" value="0.1" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1975" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_baseline_people_24.xml" value="0.244" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.2265" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_bg.xml" value="0.2045" />
@@ -20,6 +27,8 @@
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_boating_selected.xml" value="0.1975" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_button_bg.xml" value="0.153" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_card.xml" value="0.2045" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_card_board.xml" value="0.1975" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_card_board_2.xml" value="0.1975" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_cta_button.xml" value="0.2015" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_cycling.xml" value="0.1975" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_cycling_selected.xml" value="0.1975" />
@@ -50,6 +59,7 @@
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_profile1.xml" value="0.1" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_running.xml" value="0.1975" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_running_selected.xml" value="0.1975" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_safety_tips.xml" value="0.1865" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_search_service.xml" value="0.2015" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_sos.xml" value="0.2015" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_start_app.xml" value="0.2015" />
@@ -72,7 +82,10 @@
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_maps.xml" value="0.22056159420289856" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_onboarding.xml" value="0.2994791666666667" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_profile.xml" value="0.2164855072463768" />
-        <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_search_service.xml" value="0.2033514492753623" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_safety_report.xml" value="0.264" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_safety_tips.xml" value="0.264" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_safety_tips_intro.xml" value="0.264" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_search_service.xml" value="0.1" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_select_type.xml" value="0.2164855072463768" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_smart_call.xml" value="0.264" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/activity_sos.xml" value="0.264" />
@@ -83,7 +96,7 @@
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/content_contact.xml" value="0.14322916666666666" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/custom_dialog_layout.xml" value="0.21875" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/dialog_edit_location.xml" value="0.264" />
-        <entry key="..\:/IE-Project/App/app/src/main/res/layout/dialog_edit_note.xml" value="0.1" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/layout/dialog_edit_note.xml" value="0.264" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/dialog_pick_contact.xml" value="0.2984375" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/dialog_welcome.xml" value="0.264" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/edit_location_dialog.xml" value="0.21875" />
@@ -91,7 +104,7 @@
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/fragment_emergency_contact.xml" value="0.2994791666666667" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/fragment_first_screen.xml" value="0.264" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/fragment_fourth_screen.xml" value="0.20969202898550723" />
-        <entry key="..\:/IE-Project/App/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/layout/fragment_home.xml" value="0.4" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/fragment_map.xml" value="0.2994791666666667" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/fragment_notifications.xml" value="0.14564336372847012" />
         <entry key="..\:/IE-Project/App/app/src/main/res/layout/fragment_second_screen.xml" value="0.264" />

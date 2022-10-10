@@ -10,4 +10,5 @@
     <color name="activityBackground">#EFF0F5</color>
     <color name="blurWhite">#3CF1EBF1</color>
     <color name="transparent">#00000000</color>
+    <color name="safetyTip">#002B7F</color>
 </resources>

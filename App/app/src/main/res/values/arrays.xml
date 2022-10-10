@@ -38,4 +38,18 @@
         <item>Play the sound simulation to help you scare the bad guys away by using this feature</item>
         <item>Learning as much as you can about safety can reduce your risk of injury by using this feature</item>
     </string-array>
+
+    <string-array name="questions">
+        <item>Do you feel safe at home?;1;4</item>
+        <item>Great!!! What about when you are outside?;2;3</item>
+        <item>Great!!! Do you want to know the crime rate in your area?;-1;-2</item>
+        <item>Do you usually go out alone?;-1;-1</item>
+        <item>Are you living alone?;5;8</item>
+        <item>Have you ever felt lonely or isolated?;6;7</item>
+        <item>Do you feel safe when going outside?\n
+            Warning!!! You might suffer from a domestic violence.;-1;-1</item>
+        <item>Do you feel safe when going outside?\n
+            Try to give more space to each other and self-love.;-1;-1</item>
+        <item>Have you ever experience these situation?\n\n- Verbal/emotion abuse\n- Physical/sexual abuse\n- Financial abuse;6;7</item>
+    </string-array>
 </resources>

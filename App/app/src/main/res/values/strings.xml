@@ -71,4 +71,8 @@
         1. Start your activity and GirlsSafe will provide reassurance that your emergency contact are notified if an alert is activated.\n\n
         2. If an alert is activated, your emergency contact  can get your final location  message.
     </string>
+    <string name="safety_tips_desc">
+        1.You can take our quiz to find out about safety and safety reports in your area.\n\n
+        2. Learning as much as you can about safety can reduce your risk of injury by using this feature.
+    </string>
 </resources>

@@ -34,7 +34,7 @@ import com.example.app.DataReportActivity;
 import com.example.app.FollowMeIntroActivity;
 import com.example.app.R;
 import com.example.app.SOSActivity;
-import com.example.app.SearchServiceActivity;
+import com.example.app.SafetyTipsIntroActivity;
 import com.example.app.adapter.ContactButtonRecyclerViewAdapter;
 import com.example.app.data.ContactViewModel;
 import com.example.app.data.LocationResponse;
@@ -136,7 +136,7 @@ public class HomeFragment extends Fragment {
         });
 
         binding.searchService.setOnClickListener(view -> {
-            Intent intent = new Intent(getActivity(), SearchServiceActivity.class);
+            Intent intent = new Intent(getActivity(), SafetyTipsIntroActivity.class);
             startActivity(intent);
         });
 

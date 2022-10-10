@@ -30,7 +30,7 @@
     </style>
 
     <!-- Onboarding theme -->
-    <style name="Theme.App.Onboarding">
+    <style name="Theme.App.WhiteWindow">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:statusBarColor">@color/white</item>
