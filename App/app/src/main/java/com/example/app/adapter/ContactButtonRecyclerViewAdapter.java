@@ -82,6 +82,7 @@ public class ContactButtonRecyclerViewAdapter extends RecyclerView.Adapter<Conta
                 assert textView != null;
                 alertDialog.dismiss();
                 textView.setText(name);
+                activity.getIntent().putExtra( "phoneNumber", phoneNumber);
             });
         }
     }
