@@ -1,9 +1,11 @@
 package com.example.app;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -18,6 +21,8 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,6 +36,7 @@ public class FollowMeActivity extends AppCompatActivity {
 
     private ActivityFollowMeBinding binding;
     private Event event;
+
 
     private ActivityResultLauncher<Intent> selectTypeActivityLauncher =
             registerForActivityResult(
@@ -56,6 +62,8 @@ public class FollowMeActivity extends AppCompatActivity {
 
         Intent start = new Intent(this,MapsActivity.class);
 
+
+
         binding.type.setOnClickListener(view ->{
             Intent intent = new Intent(this,SelectTypeActivity.class);
             selectTypeActivityLauncher.launch(intent);
@@ -74,11 +82,11 @@ public class FollowMeActivity extends AppCompatActivity {
         });
 
         binding.from.setOnClickListener(view ->{
-            showEditLocationDialog(view,binding.fromText);
+            showEditLocationDialog(view,binding.fromText,"from",start);
         });
 
         binding.to.setOnClickListener(view ->{
-            showEditLocationDialog(view,binding.toText);
+            showEditLocationDialog(view,binding.toText,"to", start);
         });
 
         binding.contact.setOnClickListener(view ->{
@@ -86,16 +94,20 @@ public class FollowMeActivity extends AppCompatActivity {
         });
 
         binding.note.setOnClickListener(view ->{
-            showEditNoteDialog(view,binding.noteText);
+            showEditNoteDialog(view,binding.noteText,start);
         });
 
         binding.startActivityButton.setOnClickListener(view ->{
+
+            String number = getIntent().getStringExtra("phoneNumber");
+            start.putExtra("phoneNumber",number);
+
             startActivity(start);
             finish();
         });
     }
 
-    public void showEditLocationDialog(@NonNull View view, TextView textView){
+    public void showEditLocationDialog(@NonNull View view, TextView textView,String fromTo, Intent intent){
         AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
         final View dialogView = LayoutInflater.from(view.getContext()).inflate(R.layout.dialog_edit_location, null);
         builder.setView(dialogView);
@@ -105,6 +117,7 @@ public class FollowMeActivity extends AppCompatActivity {
         saveButton.setOnClickListener(v -> {
             String address = editTextAddress.getText().toString();
             textView.setText(address);
+            intent.putExtra(fromTo,address);
             alertDialog.dismiss();
         });
         Button cancelButton = dialogView.findViewById(R.id.cancelEditNoteButton);
@@ -134,7 +147,7 @@ public class FollowMeActivity extends AppCompatActivity {
         });
     }
 
-    public void showEditNoteDialog(@NonNull View view, TextView textView){
+    public void showEditNoteDialog(@NonNull View view, TextView textView, Intent intent){
         AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
         final View dialogView = LayoutInflater.from(view.getContext()).inflate(R.layout.dialog_edit_note, null);
         builder.setView(dialogView);
@@ -145,11 +158,17 @@ public class FollowMeActivity extends AppCompatActivity {
         saveButton.setOnClickListener(v -> {
             event.setNote(noteEditText.getText().toString());
             textView.setText("edited");
+            intent.putExtra("note",noteEditText.getText().toString());
             alertDialog.dismiss();
+
         });
         Button cancelButton = dialogView.findViewById(R.id.cancelEditNoteButton);
         cancelButton.setOnClickListener(v -> {
             alertDialog.dismiss();
         });
     }
+
+
+
+
 }
