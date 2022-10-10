@@ -46,10 +46,22 @@
         <item>Do you usually go out alone?;-1;-1</item>
         <item>Are you living alone?;5;8</item>
         <item>Have you ever felt lonely or isolated?;6;7</item>
-        <item>Do you feel safe when going outside?\n
-            Warning!!! You might suffer from a domestic violence.;-1;-1</item>
-        <item>Do you feel safe when going outside?\n
-            Try to give more space to each other and self-love.;-1;-1</item>
-        <item>Have you ever experience these situation?\n\n- Verbal/emotion abuse\n- Physical/sexual abuse\n- Financial abuse;6;7</item>
+        <item>
+            Warning!!! You might suffer from a great stress.\n\n
+            Do you feel safe when going outside?;2;2
+        </item>
+        <item>
+            Try to install home security system or know your neighbor.\n\n
+            Do you feel safe when going outside?;2;2
+        </item>
+        <item>Have you ever experience these situation?\n\n- Verbal/emotion abuse\n- Physical/sexual abuse\n- Financial abuse;9;10</item>
+        <item>
+            Warning!!! You might suffer from a domestic violence.\n\n
+            Do you feel safe when going outside?;2;2
+        </item>
+        <item>
+            Try to give more space to each other and self-love.\n\n
+            Do you feel safe when going outside?;2;2
+        </item>
     </string-array>
 </resources>

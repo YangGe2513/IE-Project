@@ -1,11 +1,9 @@
 package com.example.app;
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,8 +19,6 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -98,6 +94,11 @@ public class FollowMeActivity extends AppCompatActivity {
         });
 
         binding.startActivityButton.setOnClickListener(view ->{
+            // Validate input
+            if(!isEdited()){
+                Toast.makeText(this,"Please fill in the required fields!", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
             String number = getIntent().getStringExtra("phoneNumber");
             start.putExtra("phoneNumber",number);
@@ -168,7 +169,14 @@ public class FollowMeActivity extends AppCompatActivity {
         });
     }
 
-
+    public boolean isEdited(){
+        boolean b1 = binding.typeText.getText().toString().isEmpty();
+        boolean b2 = binding.timeText.getText().toString().isEmpty();
+        boolean b3 = binding.fromText.getText().toString().isEmpty();
+        boolean b4 = binding.toText.getText().toString().isEmpty();
+        boolean b5 = binding.contactText.getText().toString().isEmpty();
+        return !(b1||b2||b3||b4||b5);
+    }
 
 
 }

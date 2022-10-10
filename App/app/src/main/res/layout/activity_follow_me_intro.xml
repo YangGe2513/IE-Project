@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FollowMeIntroActivity"
-    android:background="@drawable/sos_background">
+    android:background="@drawable/bg_follow_me_intro">
 
 
     <Button
@@ -24,19 +24,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />
 
-    <ImageView
-        android:id="@+id/sos_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_follow_me_intro"
-        android:transitionName="a"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backButton"
-        app:layout_constraintVertical_bias="0.0" />
-
     <TextView
         android:id="@+id/sos_title"
         android:layout_width="wrap_content"
@@ -51,8 +38,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sos_img"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.648" />
 
     <TextView
         android:id="@+id/sos_text"
@@ -73,16 +60,14 @@
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="80dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/back_to_home_button"
         android:text="Next"
         android:textColor="@color/white"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/sos_text"
-        app:layout_constraintStart_toStartOf="@+id/sos_text"
-        app:layout_constraintTop_toBottomOf="@+id/sos_text">
+        app:layout_constraintStart_toStartOf="@+id/sos_text">
 
     </android.widget.Button>
 
