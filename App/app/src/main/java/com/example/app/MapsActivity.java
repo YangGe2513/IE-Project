@@ -5,11 +5,13 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.location.Location;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.provider.Settings;
@@ -26,6 +28,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
+import androidx.preference.PreferenceManager;
 
 import com.example.app.data.LocationResponse;
 import com.example.app.data.RetrofitClient;
@@ -188,7 +191,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         LocationResponse.Result address = main.get(0);
                         LocationResponse.AddressComponent city = address.address_components.get(1);
                         final TextView textView = binding.textViewLocate;
-                        String locationText = "I am in "+ city.long_name.toString()+". " ;
+                        String locationText = "I'm in "+ city.long_name.toString()+". " ;
                         textView.setText(locationText);
                         getIntent().putExtra("location",locationText);
 
@@ -349,9 +352,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         Button callPoliceButton = dialog.findViewById(R.id.call_police_btn);
         Button backToHomeButton = dialog.findViewById(R.id.back_home_btn);
+        SharedPreferences onBoardingSharedPreferences =
+                this.getSharedPreferences("onBoarding", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(this);
 
         callPoliceButton.setOnClickListener(view -> {
+
+            String dialMode = sharedPreferences.getString("dial_mode","");
+            if ("direct_dial".equals(dialMode)){
+                call("000");
+                return;
+            }
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+            Uri data = Uri.parse("tel:000");
+            intent.setData(data);
+            startActivity(intent);
+
             dialog.dismiss();
+
             Toast.makeText(this,"Calling the police......", Toast.LENGTH_SHORT).show() ;
         });
 
@@ -471,5 +490,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         catch (Exception e){
             Toast.makeText(this, "SMS Failed to Send, Please try again", Toast.LENGTH_SHORT).show();
         }
+    }
+
+
+    private void call(String contactNumber){
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        Uri data = Uri.parse("tel:" + contactNumber);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE},1);
+        }
+        intent.setData(data);
+        startActivity(intent);
     }
 }
