@@ -120,7 +120,7 @@
         app:layout_constraintHorizontal_bias="0.164"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.538" />
+        app:layout_constraintVertical_bias="0.564" />
 
     <ImageView
         android:id="@+id/sos"
@@ -142,15 +142,14 @@
         android:id="@+id/searchService"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:clickable="true"
         android:foreground="?selectableItemBackground"
         android:src="@drawable/ic_safety_tips"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/followMe"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/followMe"
-        app:layout_constraintTop_toBottomOf="@+id/followMe"
-        app:layout_constraintVertical_bias="0.319" />
+        app:layout_constraintTop_toBottomOf="@+id/followMe" />
 
     <ImageView
         android:id="@+id/dataReport"

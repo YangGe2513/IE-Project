@@ -17,8 +17,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -74,10 +72,10 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        boolean noIntro = sharedPreferences.getBoolean("introduction",false);
-        if(!noIntro) {
-            welcomeDialog();
-        }
+//        boolean noIntro = sharedPreferences.getBoolean("introduction",false);
+//        if(!noIntro) {
+//            welcomeDialog();
+//        }
 
         binding.welcomeTextView.setText("Hi, " + username);
 
@@ -259,44 +257,6 @@ public class HomeFragment extends Fragment {
             }
         });
 
-    }
-
-    public void welcomeDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
-        final View dialogView = LayoutInflater.from(requireActivity()).inflate(R.layout.dialog_welcome, null);
-        builder.setView(dialogView);
-        final AlertDialog alertDialog = builder.show();
-        alertDialog.setCanceledOnTouchOutside(false);
-
-        String[] titles = getResources().getStringArray(R.array.welcomeTitle);
-        String[] descriptions = getResources().getStringArray(R.array.welcomeDescription);
-
-        final TextView title = dialogView.findViewById(R.id.title);
-        final TextView description = dialogView.findViewById(R.id.descriptionTextView);
-        title.setText(titles[0]);
-        description.setText(descriptions[0]);
-
-        Button nextButton = dialogView.findViewById(R.id.nextButton);
-
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            int i = 1;
-            @Override
-            public void onClick(View v) {
-                if(i<titles.length){
-                    title.setText(titles[i]);
-                    description.setText(descriptions[i]);
-                    i++;
-                }
-                else {
-                    alertDialog.dismiss();
-                }
-            }
-        });
-
-        Button skipButton = dialogView.findViewById(R.id.skipButton);
-        skipButton.setOnClickListener(v -> {
-            alertDialog.dismiss();
-        });
     }
 
 
