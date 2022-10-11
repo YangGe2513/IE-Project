@@ -7,13 +7,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,21 +26,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.app.ContactDetailActivity;
 import com.example.app.DataReportActivity;
 import com.example.app.FollowMeIntroActivity;
-import com.example.app.R;
 import com.example.app.SOSActivity;
 import com.example.app.SafetyTipsIntroActivity;
 import com.example.app.adapter.ContactButtonRecyclerViewAdapter;
 import com.example.app.data.ContactViewModel;
-import com.example.app.data.LocationResponse;
-import com.example.app.data.RetrofitClient;
 import com.example.app.databinding.FragmentHomeBinding;
-import com.example.app.interfaces.RetrofitInterface;
-
-import java.util.ArrayList;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
 
@@ -52,10 +38,6 @@ public class HomeFragment extends Fragment {
     private ContactViewModel contactViewModel;
     private RecyclerView.LayoutManager layoutManager;
     private MediaPlayer mediaPlayer;
-    private RetrofitInterface retrofitInterface;
-    private LocationManager locationManager;
-    private String lat = "-37.913903";
-    private String lon = "145.131741";
     private static final int REQUEST_LOCATION = 1;
 
 
@@ -72,10 +54,9 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-//        boolean noIntro = sharedPreferences.getBoolean("introduction",false);
-//        if(!noIntro) {
-//            welcomeDialog();
-//        }
+        if (ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.SEND_SMS},1);
+        }
 
         binding.welcomeTextView.setText("Hi, " + username);
 
@@ -93,37 +74,23 @@ public class HomeFragment extends Fragment {
 
         // Add emergency contact
         binding.addContactButton.setOnClickListener(view -> {
-//            contactViewModel.getAll().observe(getViewLifecycleOwner(),contactList -> {
-//                int maximum = getResources().getInteger(R.integer.contacts_max);
-//                if(contactList.size() < maximum){
-//                    Intent intent = new Intent(getActivity(), ContactDetailActivity.class);
-//                    intent.putExtra("mode", "add");
-//                    startActivity(intent);
-//                }
-//                else {
-//                    maxContactDialog();
-//                }
-//            });
             Intent intent = new Intent(getActivity(), ContactDetailActivity.class);
             intent.putExtra("mode", "add");
             startActivity(intent);
         });
 
-        // Call police
-//        binding.policeButton.setOnClickListener(view -> {
-//            String dialMode = sharedPreferences.getString("dial_mode","");
-//            if ("direct_dial".equals(dialMode)){
-//                call("000");
-//                return;
-//            }
-//            Intent intent = new Intent(Intent.ACTION_DIAL);
-//            Uri data = Uri.parse("tel:000");
-//            intent.setData(data);
-//            startActivity(intent);
-//        });
-
         // FollowMe
         binding.followMe.setOnClickListener(view -> {
+            try {
+                contactViewModel.getAll().observe(getViewLifecycleOwner(), contactList -> {
+                    if (contactList.size() < 1) {
+                        throw new RuntimeException("123");
+                    }
+                });
+            }
+            catch (RuntimeException e){
+                Toast.makeText(requireActivity(), "Please add a contact first!", Toast.LENGTH_SHORT).show();
+            }
             Intent intent = new Intent(getActivity(), FollowMeIntroActivity.class);
             startActivity(intent);
         });
@@ -192,77 +159,4 @@ public class HomeFragment extends Fragment {
             mediaPlayer = null;
         }
     }
-
-
-    private void OnGPS() {
-        final androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(requireActivity().getApplicationContext());
-        builder.setMessage("Enable GPS").setCancelable(false).setPositiveButton("Yes", new  DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
-            }
-        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-        final androidx.appcompat.app.AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-    }
-    private void getLocation() {
-        if (ActivityCompat.checkSelfPermission(
-                requireActivity(),Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                requireActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
-        } else {
-            Location locationGPS = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            if (locationGPS != null) {
-                double lati = locationGPS.getLatitude();
-                double longi = locationGPS.getLongitude();
-                lat = String.valueOf(lati);
-                lon = String.valueOf(longi);
-            } else {
-                Toast.makeText(requireActivity(), "Unable to find location.", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
-
-    public void setLocation(){
-        retrofitInterface = RetrofitClient.getGoogleLocation();
-        Call<LocationResponse> locationResponseCall = retrofitInterface.getGoogleLocation(lat+","+lon,getString(R.string.google_api_key));
-        locationResponseCall.enqueue(new Callback<LocationResponse>() {
-            @Override
-            public void onResponse(Call<LocationResponse> call,
-                                   Response<LocationResponse> response) {
-                if (response.isSuccessful()) {
-                    try {
-                        LocationResponse jsonObj = response.body();
-                        ArrayList<LocationResponse.Result> main = jsonObj.results;
-                        LocationResponse.Result address = main.get(0);
-                        LocationResponse.AddressComponent city = address.address_components.get(1);
-
-                        Toast.makeText(requireContext(),"I am in "+ city.long_name.toString() + ". Latitude:" +lat+ ", Longitude:"+lon+".", Toast.LENGTH_SHORT).show();
-                    } catch (Exception e) {
-                        Log.i("Error ", "Assign failed");
-                    }
-
-                } else {
-                    Log.i("Error ", "Response failed");
-                }
-            }
-            @Override
-            public void onFailure(Call<LocationResponse> call, Throwable t){
-                Toast.makeText(requireContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }
-
-
-
-
-
-
-
 }

@@ -1,26 +1,16 @@
 package com.example.app;
 
-import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -30,10 +20,6 @@ import com.example.app.databinding.ActivityMainBinding;
 import com.example.app.onboarding.OnboardingActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -55,19 +41,26 @@ public class MainActivity extends AppCompatActivity {
         }
         super.onCreate(savedInstanceState);
 
-        welcomeDialog();
+        boolean welcome = sharedPreferences.getBoolean("welcome",true);
+        if(welcome)
+        {
+            welcomeDialog();
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean("welcome", false);
+            editor.apply();
+        }
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
 
 
 
-        String[] permissions = new String[]{
-                Manifest.permission.SEND_SMS,
-                Manifest.permission.ACCESS_FINE_LOCATION};
+//        String[] permissions = new String[]{
+//                Manifest.permission.SEND_SMS,
+//                Manifest.permission.ACCESS_FINE_LOCATION};
 
-        checkPermissions(permissions);
-        //  permissions  granted.
+//        checkPermissions(permissions);
+//        //  permissions  granted.
 
 
 
@@ -82,85 +75,83 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
         Objects.requireNonNull(getSupportActionBar()).hide();
 
-
-        if(checkAndRequestPermissions()) {
-            // carry on the normal flow, as the case of  permissions  granted.
-        }
-
-
-
-        ActivityCompat.requestPermissions(this,
-                new String[] {Manifest.permission.SEND_SMS}, MESSAGE_PERMISSION_CODE);
-
-        checkPermission(Manifest.permission.SEND_SMS,MESSAGE_PERMISSION_CODE);
+//
+//        if(checkAndRequestPermissions()) {
+//            // carry on the normal flow, as the case of  permissions  granted.
+//        }
+//
+//
+//
+//        ActivityCompat.requestPermissions(this,
+//                new String[] {Manifest.permission.SEND_SMS}, MESSAGE_PERMISSION_CODE);
+//
+//        checkPermission(Manifest.permission.SEND_SMS,MESSAGE_PERMISSION_CODE);
 
 
     }
 
-
-    public void checkPermission(String permission, int requestCode)
-    {
-        // Checking if permission is not granted
-        if (ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_DENIED) {
-            ActivityCompat.requestPermissions(this, new String[] { permission }, requestCode);
-        }
-    }
-
-    private  boolean checkAndRequestPermissions() {
-        int permissionSendMessage = ContextCompat.checkSelfPermission(this,
-                Manifest.permission.SEND_SMS);
-        int locationPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
-        List<String> listPermissionsNeeded = new ArrayList<>();
-        if (locationPermission != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(Manifest.permission.ACCESS_FINE_LOCATION);
-        }
-        if (permissionSendMessage != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(Manifest.permission.SEND_SMS);
-        }
-        if (!listPermissionsNeeded.isEmpty()) {
-            ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]),REQUEST_ID_MULTIPLE_PERMISSIONS);
-            return false;
-        }
-        return true;
-    }
-
-    private  boolean checkPermissions( String[] permissions) {
-        int result;
-        List<String> listPermissionsNeeded = new ArrayList<>();
-        for (String p:permissions) {
-            result = ContextCompat.checkSelfPermission(this,p);
-            if (result != PackageManager.PERMISSION_GRANTED) {
-                listPermissionsNeeded.add(p);
-            }
-        }
-        if (!listPermissionsNeeded.isEmpty()) {
-            ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]),MULTIPLE_PERMISSIONS );
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String permissionsList[], int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissionsList, grantResults);
-        switch (requestCode) {
-            case MULTIPLE_PERMISSIONS: {
-                if (grantResults.length > 0) {
-                    String permissionsDenied = "";
-                    for (String per : permissionsList) {
-                        if (grantResults[0] == PackageManager.PERMISSION_DENIED) {
-                            permissionsDenied += "\n" + per;
-
-                        }
-
-                    }
-                }
-                return;
-            }
-        }
-    }
-
-    }
+//
+//    public void checkPermission(String permission, int requestCode)
+//    {
+//        // Checking if permission is not granted
+//        if (ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_DENIED) {
+//            ActivityCompat.requestPermissions(this, new String[] { permission }, requestCode);
+//        }
+//    }
+//
+//    private  boolean checkAndRequestPermissions() {
+//        int permissionSendMessage = ContextCompat.checkSelfPermission(this,
+//                Manifest.permission.SEND_SMS);
+//        int locationPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
+//        List<String> listPermissionsNeeded = new ArrayList<>();
+//        if (locationPermission != PackageManager.PERMISSION_GRANTED) {
+//            listPermissionsNeeded.add(Manifest.permission.ACCESS_FINE_LOCATION);
+//        }
+//        if (permissionSendMessage != PackageManager.PERMISSION_GRANTED) {
+//            listPermissionsNeeded.add(Manifest.permission.SEND_SMS);
+//        }
+//        if (!listPermissionsNeeded.isEmpty()) {
+//            ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]),REQUEST_ID_MULTIPLE_PERMISSIONS);
+//            return false;
+//        }
+//        return true;
+//    }
+//
+//    private  boolean checkPermissions( String[] permissions) {
+//        int result;
+//        List<String> listPermissionsNeeded = new ArrayList<>();
+//        for (String p:permissions) {
+//            result = ContextCompat.checkSelfPermission(this,p);
+//            if (result != PackageManager.PERMISSION_GRANTED) {
+//                listPermissionsNeeded.add(p);
+//            }
+//        }
+//        if (!listPermissionsNeeded.isEmpty()) {
+//            ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]),MULTIPLE_PERMISSIONS );
+//            return false;
+//        }
+//        return true;
+//    }
+//
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, String permissionsList[], int[] grantResults) {
+//        super.onRequestPermissionsResult(requestCode, permissionsList, grantResults);
+//        switch (requestCode) {
+//            case MULTIPLE_PERMISSIONS: {
+//                if (grantResults.length > 0) {
+//                    String permissionsDenied = "";
+//                    for (String per : permissionsList) {
+//                        if (grantResults[0] == PackageManager.PERMISSION_DENIED) {
+//                            permissionsDenied += "\n" + per;
+//
+//                        }
+//
+//                    }
+//                }
+//                return;
+//            }
+//        }
+//    }
 
 
     public void welcomeDialog(){

@@ -63,6 +63,10 @@ public class SOSActivity extends AppCompatActivity {
         binding = ActivitySosBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},1);
+        }
+
         Button sosHomeButton = binding.sosHomeButton;
 
         sosHomeButton.setOnClickListener(view -> {
