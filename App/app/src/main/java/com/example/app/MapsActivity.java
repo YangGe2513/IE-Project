@@ -485,10 +485,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         try{
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage(mobileNum,null,msgText,null,null);
-            Toast.makeText(this, "SMS Sent Successfully", Toast.LENGTH_SHORT).show();
+
         }
         catch (Exception e){
-            Toast.makeText(this, "SMS Failed to Send, Please try again", Toast.LENGTH_SHORT).show();
+
         }
     }
 

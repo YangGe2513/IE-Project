@@ -2,13 +2,17 @@ package com.example.app;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -21,13 +25,19 @@ import com.example.app.databinding.ActivityMainBinding;
 import com.example.app.onboarding.OnboardingActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private static final int MESSAGE_PERMISSION_CODE = 100;
-    private static final int REQUEST_LOCATION = 1;
+    private static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
+    public static final int MULTIPLE_PERMISSIONS = 10; // code you want.
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         SharedPreferences sharedPreferences = getSharedPreferences("onBoarding", Context.MODE_PRIVATE);
@@ -43,7 +53,18 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
-        checkPermission(Manifest.permission.SEND_SMS,MESSAGE_PERMISSION_CODE);
+
+
+
+        String[] permissions = new String[]{
+                Manifest.permission.SEND_SMS,
+                Manifest.permission.ACCESS_FINE_LOCATION};
+
+        checkPermissions(permissions);
+        //  permissions  granted.
+
+
+
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -56,8 +77,17 @@ public class MainActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
 
 
+        if(checkAndRequestPermissions()) {
+            // carry on the normal flow, as the case of  permissions  granted.
+        }
+
+
+
         ActivityCompat.requestPermissions(this,
-                new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
+                new String[] {Manifest.permission.SEND_SMS}, MESSAGE_PERMISSION_CODE);
+
+        checkPermission(Manifest.permission.SEND_SMS,MESSAGE_PERMISSION_CODE);
+
 
     }
 
@@ -68,30 +98,60 @@ public class MainActivity extends AppCompatActivity {
         if (ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_DENIED) {
             ActivityCompat.requestPermissions(this, new String[] { permission }, requestCode);
         }
-        else {
-            Toast.makeText(this, "Permission already granted", Toast.LENGTH_SHORT).show();
+    }
+
+    private  boolean checkAndRequestPermissions() {
+        int permissionSendMessage = ContextCompat.checkSelfPermission(this,
+                Manifest.permission.SEND_SMS);
+        int locationPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
+        List<String> listPermissionsNeeded = new ArrayList<>();
+        if (locationPermission != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.ACCESS_FINE_LOCATION);
         }
+        if (permissionSendMessage != PackageManager.PERMISSION_GRANTED) {
+            listPermissionsNeeded.add(Manifest.permission.SEND_SMS);
+        }
+        if (!listPermissionsNeeded.isEmpty()) {
+            ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]),REQUEST_ID_MULTIPLE_PERMISSIONS);
+            return false;
+        }
+        return true;
+    }
+
+    private  boolean checkPermissions( String[] permissions) {
+        int result;
+        List<String> listPermissionsNeeded = new ArrayList<>();
+        for (String p:permissions) {
+            result = ContextCompat.checkSelfPermission(this,p);
+            if (result != PackageManager.PERMISSION_GRANTED) {
+                listPermissionsNeeded.add(p);
+            }
+        }
+        if (!listPermissionsNeeded.isEmpty()) {
+            ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]),MULTIPLE_PERMISSIONS );
+            return false;
+        }
+        return true;
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           @NonNull String[] permissions,
-                                           @NonNull int[] grantResults)
-    {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    public void onRequestPermissionsResult(int requestCode, String permissionsList[], int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissionsList, grantResults);
+        switch (requestCode) {
+            case MULTIPLE_PERMISSIONS: {
+                if (grantResults.length > 0) {
+                    String permissionsDenied = "";
+                    for (String per : permissionsList) {
+                        if (grantResults[0] == PackageManager.PERMISSION_DENIED) {
+                            permissionsDenied += "\n" + per;
 
-        if (requestCode == MESSAGE_PERMISSION_CODE) {
+                        }
 
-            // Checking whether user granted the permission or not.
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
-                // Showing the toast message
-                Toast.makeText(this, "Camera Permission Granted", Toast.LENGTH_SHORT).show();
-            }
-            else {
-                Toast.makeText(this, "Camera Permission Denied", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                return;
             }
         }
-
     }
+
 }
