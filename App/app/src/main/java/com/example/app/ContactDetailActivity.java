@@ -41,6 +41,9 @@ public class ContactDetailActivity extends AppCompatActivity {
         binding.phoneEditText.setText(phoneNumber);
 
         binding.saveButton.setOnClickListener(view -> {
+            if(hasEmpty()){
+                return;
+            }
             String newName = Objects.requireNonNull(binding.nameEditText.getText()).toString();
             String newPhoneNumber = Objects.requireNonNull(binding.phoneEditText.getText()).toString();
             String newRelationship = binding.relationshipSpinner.getSelectedItem().toString();
@@ -130,5 +133,17 @@ public class ContactDetailActivity extends AppCompatActivity {
                 return contact;
             });
         }
+    }
+
+    private boolean hasEmpty(){
+        boolean nameIsEmpty = binding.nameEditText.getText().toString().isEmpty();
+        boolean phoneIsEmpty = binding.phoneEditText.getText().toString().isEmpty();
+        if(nameIsEmpty){
+            binding.textInputLayout.setError("Name cannot be blank!");
+        }
+        if(phoneIsEmpty){
+            binding.textInputLayout2.setError("PhoneNumber cannot be blank!");
+        }
+        return nameIsEmpty || phoneIsEmpty;
     }
 }

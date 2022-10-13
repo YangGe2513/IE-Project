@@ -1,45 +1,31 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory app:title="@string/messages_header">
+    <PreferenceCategory app:title="@string/profile_header">
 
         <EditTextPreference
-            app:key="name"
+            app:key="Username"
             app:title="@string/name_title"
             app:useSimpleSummaryProvider="true" />
 
-        <EditTextPreference
-            app:key="contact1"
-            app:title="@string/emergency_contact1"
-            app:useSimpleSummaryProvider="true" />
-
-        <EditTextPreference
-            app:key="contact2"
-            app:title="@string/emergency_contact2"
-            app:useSimpleSummaryProvider="true" />
-
-        <ListPreference
-            app:defaultValue="dial_screen"
-            app:entries="@array/dial_mode_entries"
-            app:entryValues="@array/dial_mode_values"
-            app:key="dial_mode"
-            app:title="@string/reply_title"
-            app:useSimpleSummaryProvider="true" />
+<!--        <ListPreference-->
+<!--            app:defaultValue="dial_screen"-->
+<!--            app:entries="@array/dial_mode_entries"-->
+<!--            app:entryValues="@array/dial_mode_values"-->
+<!--            app:key="dial_mode"-->
+<!--            app:title="@string/reply_title"-->
+<!--            app:useSimpleSummaryProvider="true" />-->
 
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/sync_header">
 
         <SwitchPreferenceCompat
+            app:defaultValue="true"
             app:key="introduction"
+            app:summaryOff="@string/attachment_summary_off"
+            app:summaryOn="@string/attachment_summary_on"
             app:title="@string/introduction_title" />
-
-<!--        <SwitchPreferenceCompat-->
-<!--            app:dependency="sync"-->
-<!--            app:key="attachment"-->
-<!--            app:summaryOff="@string/attachment_summary_off"-->
-<!--            app:summaryOn="@string/attachment_summary_on"-->
-<!--            app:title="@string/attachment_title" />-->
 
     </PreferenceCategory>
 

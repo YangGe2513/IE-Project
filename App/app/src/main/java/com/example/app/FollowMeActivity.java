@@ -33,7 +33,6 @@ public class FollowMeActivity extends AppCompatActivity {
     private ActivityFollowMeBinding binding;
     private Event event;
 
-
     private ActivityResultLauncher<Intent> selectTypeActivityLauncher =
             registerForActivityResult(
                     new ActivityResultContracts.StartActivityForResult(),
@@ -161,7 +160,6 @@ public class FollowMeActivity extends AppCompatActivity {
             textView.setText("edited");
             intent.putExtra("note",noteEditText.getText().toString());
             alertDialog.dismiss();
-
         });
         Button cancelButton = dialogView.findViewById(R.id.cancelEditNoteButton);
         cancelButton.setOnClickListener(v -> {

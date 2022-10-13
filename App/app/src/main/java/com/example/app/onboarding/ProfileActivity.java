@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 import com.example.app.databinding.ActivityProfileBinding;
 
@@ -29,10 +30,14 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void finishOnBoarding(){
-        String username = binding.nameEditText.getText().toString();
         SharedPreferences sharedPreferences = getSharedPreferences("onBoarding", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("IsFinished",true);
+        editor.apply();
+
+        SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = defaultSharedPreferences.edit();
+        String username = binding.nameEditText.getText().toString();
         editor.putString("Username",username);
         editor.apply();
         Intent intent = new Intent(this, SuccessActivity.class);

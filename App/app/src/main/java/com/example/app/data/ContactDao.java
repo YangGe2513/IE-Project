@@ -17,6 +17,9 @@ public interface ContactDao {
     @Query("SELECT * FROM contact")
     LiveData<List<Contact>> getAll();
 
+    @Query("SELECT * FROM contact")
+    List<Contact> getContactList();
+
     @Query("SELECT * FROM contact WHERE name = :name LIMIT 1")
     Contact findByName(String name);
 

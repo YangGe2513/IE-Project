@@ -13,7 +13,8 @@
     <string name="emergency_contact2">Emergency Contact 2</string>
     <string name="follow_me">Follow Me</string>
     <string name="search_service">Search Service</string>
-    <integer name="contacts_max">4</integer>
+    <string name="tips_title">TIPS</string>
+    <string name="message_add_contact">To use this feature, you need to create a contact first. Do you want to add a contact now?</string>
 
     <!-- login activity-->
     <string name="title_activity_login">LoginActivity</string>
@@ -31,11 +32,11 @@
 
     <!-- Contact detail activity -->
     <string name="set_contact">Set Your E-Contact</string>
-    <string name="phone_no">Phone No.</string>
+    <string name="phone_no">Phone Number</string>
     <string name="name">Name</string>
 
     <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
+    <string name="profile_header">Profile</string>
     <string name="sync_header">Sync</string>
 
     <!-- Messages Preferences -->
@@ -43,11 +44,11 @@
     <string name="reply_title">Dial mode for calling police</string>
 
     <!-- Sync Preferences -->
-    <string name="introduction_title">Close introduction</string>
+    <string name="introduction_title">Introduction</string>
     <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    <string name="attachment_summary_on">On
     </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="attachment_summary_off">Off</string>
     <string name="title_activity_contact">ContactActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

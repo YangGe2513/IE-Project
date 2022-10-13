@@ -11,10 +11,10 @@
         android:icon="@drawable/ic_baseline_people_24"
         android:title="@string/title_contact" />
 
-    <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_baseline_map_24"
-        android:title="@string/title_map" />
+<!--    <item-->
+<!--        android:id="@+id/navigation_notifications"-->
+<!--        android:icon="@drawable/ic_baseline_map_24"-->
+<!--        android:title="@string/title_map" />-->
 
     <item
         android:id="@+id/navigation_settings"

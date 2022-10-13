@@ -31,6 +31,10 @@ public class ContactViewModel extends AndroidViewModel {
         return allContacts;
     }
 
+    public List<Contact> getContactList() {
+        return cRepository.getContactList();
+    }
+
     public void add(Contact contact) {
         cRepository.add(contact);
     }

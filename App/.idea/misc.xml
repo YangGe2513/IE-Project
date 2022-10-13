@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable-v24/back_to_home_button.xml" value="0.2045" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable-v24/custom_dialog_background.xml" value="0.1865" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable-v24/done_button.xml" value="0.2045" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable-v24/ic_baseline_cloud_upload_24.xml" value="0.1975" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.1975" />
@@ -17,6 +18,7 @@
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/button_shape.xml" value="0.119" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/button_shape2.xml" value="0.1975" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/button_shape3.xml" value="0.1865" />
+        <entry key="..\:/IE-Project/App/app/src/main/res/drawable/dialog_bg.xml" value="0.1865" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/fake_voice_button.xml" value="0.1975" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic____16.xml" value="0.2045" />
         <entry key="..\:/IE-Project/App/app/src/main/res/drawable/ic_add_button.xml" value="0.1" />

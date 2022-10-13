@@ -2,8 +2,6 @@ package com.example.app.ui.home;
 
 import android.Manifest;
 import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -13,7 +11,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
@@ -26,6 +25,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.app.ContactDetailActivity;
 import com.example.app.DataReportActivity;
 import com.example.app.FollowMeIntroActivity;
+import com.example.app.R;
 import com.example.app.SOSActivity;
 import com.example.app.SafetyTipsIntroActivity;
 import com.example.app.adapter.ContactButtonRecyclerViewAdapter;
@@ -45,32 +45,20 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         // Load data
         contactViewModel = new ViewModelProvider(requireActivity()).get(ContactViewModel.class);
-        SharedPreferences onBoardingSharedPreferences =
-                requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE);
-        SharedPreferences sharedPreferences =
-                PreferenceManager.getDefaultSharedPreferences(requireActivity());
-        String username = onBoardingSharedPreferences.getString("Username","");
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        // Send message permission
         if (ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.SEND_SMS},1);
         }
 
-        binding.welcomeTextView.setText("Hi, " + username);
+        // Show username
+        setUsername();
 
-        contactViewModel.getAll().observe(getViewLifecycleOwner(),contactList -> {
-            ContactButtonRecyclerViewAdapter adapter = new ContactButtonRecyclerViewAdapter(getActivity(),contactList);
-            binding.contactRecyclerView.setAdapter(adapter);
-        });
-
-        layoutManager = new LinearLayoutManager(getActivity().getParent(),LinearLayoutManager.HORIZONTAL,false);
-        binding.contactRecyclerView.setLayoutManager(layoutManager);
-
-
-        ActivityCompat.requestPermissions(requireActivity(),
-                new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
+        // Show current emergency contact
+        setEmergencyContact();
 
         // Add emergency contact
         binding.addContactButton.setOnClickListener(view -> {
@@ -81,21 +69,19 @@ public class HomeFragment extends Fragment {
 
         // FollowMe
         binding.followMe.setOnClickListener(view -> {
-            try {
-                contactViewModel.getAll().observe(getViewLifecycleOwner(), contactList -> {
-                    if (contactList.size() < 1) {
-                        throw new RuntimeException("123");
-                    }
-                });
-            }
-            catch (RuntimeException e){
-                Toast.makeText(requireActivity(), "Please add a contact first!", Toast.LENGTH_SHORT).show();
+            if(contactViewModel.getContactList().size() < 1){
+                addContactDialog();
+                return;
             }
             Intent intent = new Intent(getActivity(), FollowMeIntroActivity.class);
             startActivity(intent);
         });
 
         binding.sos.setOnClickListener(view->{
+            if(contactViewModel.getContactList().size() < 1){
+                addContactDialog();
+                return;
+            }
             Intent intent = new Intent(getActivity(), SOSActivity.class);
             startActivity(intent);
         });
@@ -122,19 +108,28 @@ public class HomeFragment extends Fragment {
         startActivity(intent);
     }
 
-    private void maxContactDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        // Set message
-        builder.setMessage("Beyond the maximum set for emergency contacts!")
-                .setTitle("Error");
-        // Add the buttons
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-            }
+    private void addContactDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
+        final View dialogView = LayoutInflater.from(requireActivity()).inflate(R.layout.custom_dialog_layout, null);
+        builder.setView(dialogView);
+        final AlertDialog alertDialog = builder.show();
+        alertDialog.setCanceledOnTouchOutside(false);
+        final TextView title = dialogView.findViewById(R.id.textView);
+        title.setText(R.string.tips_title);
+        final TextView message = dialogView.findViewById(R.id.cancelEditNoteButton);
+        message.setText(R.string.message_add_contact);
+
+        Button positiveButton = dialogView.findViewById(R.id.btn_yes);
+        positiveButton.setOnClickListener(v -> {
+            Intent intent = new Intent(requireActivity(),ContactDetailActivity.class);
+            intent.putExtra("mode", "add");
+            startActivity(intent);
+            alertDialog.dismiss();
         });
-        // Create the AlertDialog
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        Button negativeButton = dialogView.findViewById(R.id.btn_cancel);
+        negativeButton.setOnClickListener(v -> {
+            alertDialog.dismiss();
+        });
     }
 
     private void playSound(int resourceId){
@@ -148,6 +143,23 @@ public class HomeFragment extends Fragment {
             mp.release();
             mp = null;
         });
+    }
+
+    private void setUsername(){
+        // Username
+        SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireActivity());
+        String username = defaultSharedPreferences.getString("Username","");
+        binding.welcomeTextView.setText("Hi, " + username);
+    }
+
+    private void setEmergencyContact(){
+        contactViewModel.getAll().observe(getViewLifecycleOwner(),contactList -> {
+            ContactButtonRecyclerViewAdapter adapter = new ContactButtonRecyclerViewAdapter(getActivity(),contactList);
+            binding.contactRecyclerView.setAdapter(adapter);
+        });
+
+        layoutManager = new LinearLayoutManager(getActivity().getParent(),LinearLayoutManager.HORIZONTAL,false);
+        binding.contactRecyclerView.setLayoutManager(layoutManager);
     }
 
     @Override

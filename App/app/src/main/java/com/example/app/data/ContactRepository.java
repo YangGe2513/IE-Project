@@ -26,6 +26,10 @@ public class ContactRepository {
         return allContacts;
     }
 
+    public List<Contact> getContactList() {
+        return contactDao.getContactList();
+    }
+
     public void add(final Contact contact) {
         ContactDatabase.databaseWriteExecutor.execute(new Runnable() {
             @Override
