@@ -58,7 +58,6 @@ public class FollowMeActivity extends AppCompatActivity {
         Intent start = new Intent(this,MapsActivity.class);
 
 
-
         binding.type.setOnClickListener(view ->{
             Intent intent = new Intent(this,SelectTypeActivity.class);
             selectTypeActivityLauncher.launch(intent);
